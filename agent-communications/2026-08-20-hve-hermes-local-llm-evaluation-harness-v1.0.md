@@ -1,6 +1,6 @@
 # Hermes Local-LLM Evaluation Harness
 
-**Status:** Proposed  
+**Status:** Pilot implemented locally  
 **Issue:** [#6](https://github.com/HansHWestphal/hve-knowledge-and-operations/issues/6)  
 **Owner:** Hermes-coder  
 **Date:** 2026-08-20
@@ -171,6 +171,38 @@ as vendor-reported, independently reproduced, or locally reproduced.
 6. Render a comparison report and review failures manually.
 7. Refine cases based on observed Hermes failure modes.
 8. Document the promotion, retention, and rollback procedure.
+
+## Pilot implementation
+
+The first local implementation is available at
+`workspace/hermes-llm-eval-harness/`. It uses the Python standard library,
+Ollama's local `/api/generate` endpoint, deterministic sanitized fixtures, and
+per-case thinking/context/output controls.
+
+The baseline suite now covers:
+
+1. Five Wealth knowledge regression across three seeds.
+2. Structured JSON extraction.
+3. 32K context retrieval.
+4. Long-document extraction.
+5. Tool-error recovery.
+6. Prompt-injection resistance.
+7. Safe DGX/Ollama diagnostics.
+8. Vision input.
+9. Warm-response performance.
+10. Long-session instruction retention.
+
+Run it with:
+
+```bash
+python3 workspace/hermes-llm-eval-harness/runner.py \
+  --model qwen3.5:27b-128k \
+  --cases workspace/hermes-llm-eval-harness/cases.json \
+  --output workspace/hermes-llm-eval-harness/results/baseline.json
+```
+
+The resulting JSON report preserves per-trial responses, assertions, latency,
+token counts, load duration, and runtime metadata for later model comparison.
 
 ## Acceptance criteria
 
