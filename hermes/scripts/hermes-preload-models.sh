@@ -3,8 +3,8 @@
 # Spark hot local stack — boot preload for Ollama.
 #
 # Policy (Hans / HVE Digital Twin, 2026-08-05):
-#   Hot local models: qwen3.5:27b-128k, gpt-oss:20b,
-#   qwen2.5:3b for Honcho, plus nomic-embed-text
+#   Hot local models: qwen3.8-hermes:27b-128k for Hermes,
+#   qwen3.8-distill-2b:q4_k_m for Honcho, plus nomic-embed-text
 #   Role: Tier A delegation worker complement to cloud Grok 4.5
 #   Do NOT preload: nemotron3:33b, 120B, other Qwen sizes, nano/mistral
 #   Coding: gpt-oss:20b, Hermes-coder, or GitHub Copilot CLI
@@ -14,24 +14,23 @@
 set -euo pipefail
 
 OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
-PRIMARY_MODEL="qwen3.5:27b-128k"
+PRIMARY_MODEL="qwen3.8-hermes:27b-128k"
 PRIMARY_CTX="${PRIMARY_CTX:-131072}"
-CODER_MODEL="gpt-oss:20b"
-CODER_CTX="${CODER_CTX:-65536}"
 EMBEDDING_MODEL="nomic-embed-text"
 EMBEDDING_CTX="${EMBEDDING_CTX:-2048}"
-DERIVER_MODEL="qwen2.5:3b"
+DERIVER_MODEL="qwen3.8-distill-2b:q4_k_m"
 DERIVER_CTX="${DERIVER_CTX:-32768}"
 KEEP_ALIVE="${KEEP_ALIVE:--1}"
 
 EVICT_MODELS=(
+  "gpt-oss:20b"
   "devstral:24b"
   "qwen3-coder:30b"
   "nemotron3:33b"
   "nemotron-3-super:120b"
   "gpt-oss:120b"
   "llama3.3:70b-instruct-q3_K_M"
-  "qwen3.5:27b"
+  "qwen3.5:27b-128k"
   "qwen3.5:9b"
   "qwen2.5-coder:32b"
   "qwen2.5-coder:14b"
@@ -97,20 +96,6 @@ load_embedding_model() {
   fi
 }
 
-load_coder_model() {
-  log "Loading coder model: ${CODER_MODEL} (ctx: ${CODER_CTX}, keep_alive: ${KEEP_ALIVE})"
-  local response
-  response=$(curl -s --max-time 180 "${OLLAMA_URL}/api/generate" \
-    -H "Content-Type: application/json" \
-    -d "{\"model\":\"${CODER_MODEL}\",\"prompt\":\"ok\",\"keep_alive\":${KEEP_ALIVE},\"stream\":false,\"options\":{\"num_ctx\":${CODER_CTX}}}" 2>&1) || true
-  if echo "${response}" | grep -qE '"done"[[:space:]]*:[[:space:]]*true|"eval_count"'; then
-    log "OK hot: ${CODER_MODEL}"
-  else
-    log "WARNING: unexpected response for ${CODER_MODEL}"
-    echo "${response}" | head -5
-  fi
-}
-
 load_deriver_model() {
   log "Loading deriver model: ${DERIVER_MODEL} (ctx: ${DERIVER_CTX}, keep_alive: ${KEEP_ALIVE})"
   local response
@@ -137,8 +122,7 @@ for model in "${EVICT_MODELS[@]}"; do
 done
 sleep 1
 load_primary
-load_coder_model
 load_deriver_model
 load_embedding_model
 print_ps
-log "Done. Hot policy: ${PRIMARY_MODEL}, ${CODER_MODEL}, ${DERIVER_MODEL}, and ${EMBEDDING_MODEL}."
+log "Done. Hot policy: ${PRIMARY_MODEL}, ${DERIVER_MODEL}, and ${EMBEDDING_MODEL}."

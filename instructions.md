@@ -67,16 +67,18 @@ sovereignty without sacrificing community.
 
 ## 2. Current Stage & Offer Ladder
 
-We are in **pre-revenue stage**. First product launch: **July 1, 2026**.
+We are in **pre-revenue stage**. First product launch target: **January 1, 2027**.
+The remainder of 2026 is reserved for test-and-learn opportunities across the
+Five Wealth dimensions.
 
 | Tier | Price | Description | Launch |
 |------|-------|-------------|--------|
 | Free | $0 | Public Substack + daily X posts (Walter Russell, Transurfing, mindfulness, AI) | Active |
-| The Daily Transmission | $9/month | Daily short, potent wisdom transmissions | July 1, 2026 |
+| The Daily Transmission | $9/month | Daily short, potent wisdom transmissions | January 1, 2027 |
 | Life Hacking Lab | $33/month | In-depth frameworks, meditations, exercises, monthly group calls | Oct 1, 2026 |
 | Sovereign Mentorship | $333/month | 1:1 or small-group coaching with Hans, including Kabbalah program | Jan 1, 2027 |
 
-> **Bitcoiners receive a 10% discount on any paid tier.**
+> **No Bitcoin discount in effect as of August 2026.** (Previously a Bitcoiner discount was floated — Hans has removed it pending launch direction. Do not advertise any Bitcoin discount.)
 
 ---
 
@@ -179,16 +181,16 @@ This is the full operational technology stack for Human Value Exchange. As COO, 
 | **Substack** (humanvalueexchange.com) | **Supplemental** — content delivery for Daily Transmission + Life Hacking Lab | ✅ Paid tier ENABLED — May 10, 2026 |
 
 ### Program Lineup (see `content-intelligence/programs-brief.md` for full detail)
-| Program | USD | Bitcoin (80% off) | Launch |
-|---------|-----|-------------------|--------|
-| The Daily Transmission ⭐ | $9/mo | $1.80/mo | **July 1, 2026** |
-| Life Hacking Lab | $33/mo | $6.60/mo | Oct 1, 2026 |
-| Sovereign Mentorship | $333/mo | $66.60/mo | Jan 1, 2027 |
-| 1:1 Life Hacking Consultation | Custom | 80% off | Now |
-| 1:1 Bitcoin & IBC Coaching | Custom | 80% off | Now |
-| Fitness & Energy Mastery (Wolfgang) | Custom | 80% off | Now |
+| Program | USD | Launch |
+|---------|-----|--------|
+| The Daily Transmission ⭐ | $9/mo | **January 1, 2027** |
+| Life Hacking Lab | $33/mo | Oct 1, 2026 |
+| Sovereign Mentorship | $333/mo | Jan 1, 2027 |
+| 1:1 Life Hacking Consultation | Custom | Now |
+| 1:1 Bitcoin & IBC Coaching | Custom | Now |
+| Fitness & Energy Mastery (Wolfgang) | Custom | Now |
 
-> **Bitcoin discount is permanent policy at 80% off — our strongest marketing hook.**
+> **No Bitcoin discount is currently advertised.** (Removed August 2026 — Hans re-adding is possible post-launch but nothing is live right now. Do not reference a Bitcoiner discount in any marketing copy.)
 
 ### Square.site Current State (Beta)
 - Pages: Home, About, Philosophy, Programs (shop), Blog (→ Substack), Contact
@@ -204,7 +206,7 @@ This is the full operational technology stack for Human Value Exchange. As COO, 
 | **Substack / Stripe (USD)** | Subscription payments | ✅ ENABLED — May 10, 2026 |
 | **Bitcoin rail** | BTC payments — options under review | ⏸️ PAUSED — decision pending |
 
-> **Bitcoin strategy note:** Bitcoiners are the PRIMARY target audience and receive an **80% discount** on paid tiers. Bitcoin payment rail options are being evaluated — do not finalize until Hans decides.
+> **Bitcoin strategy note:** Bitcoiners remain a valued part of the audience, but **no Bitcoin discount is currently advertised** (removed August 2026). Bitcoin payment rail options stay under review — do not finalize until Hans decides.
 
 ### Marketing & Social Channels
 | Platform | Purpose | Handle |
@@ -297,16 +299,16 @@ Programs and coaching delivered via Square.site, Substack, and Trainerize. See `
 ## 13. Branding Direction
 - **Current:** Green (#228b22) + Gold (#d4af37) on Square.site; Orange (#FF6719) on Substack — inconsistent
 - **CEO preference:** Black, white, and silver — sovereign/premium aesthetic
-- **Status:** Rebrand targeted for July 1 launch — finalize before build-out begins
+- **Status:** Rebrand targeted for January 1, 2027 launch — finalize before build-out begins
 - **Action:** Align all platforms (Square, Substack, social) to unified brand at launch
 
 ---
 
-## 14. Immediate Priorities (as of May 2026)
+## 14. Immediate Priorities (as of August 2026)
 
-- [ ] **Enable Substack paid tier ($9/month USD) — critical path for July 1 launch**
+- [ ] **Enable Substack paid tier ($9/month USD) — critical path for January 1, 2027 launch**
 - [ ] **Build Square.site Programs section with full offer ladder**
-- [ ] **Finalize July 1 rebrand palette (black/white/silver)**
+- [ ] **Finalize January 1, 2027 rebrand palette (black/white/silver)**
 - [ ] Build Copilot Studio customer service agent (M365 tenant) — Wolfgang to develop; target go-live June 15
 - [ ] Rebuild Substack publishing cadence to weekly by June 1
 - [ ] Design operating workflows and agent coordination cadences

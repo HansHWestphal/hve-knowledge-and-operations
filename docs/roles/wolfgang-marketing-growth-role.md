@@ -1,19 +1,22 @@
-# Wolfgang Westphal — Lead Generation & Time Wealth Role at Human Value Exchange
+# Wolfgang Westphal — Marketing & Growth Role at Human Value Exchange
 
-**Status:** _Draft for Review_ **version updated**: 2026-08-14 (v.2)  
-_Prepared by:_ Hermes **(Digital Twin / Local CFO)** | 
-_Version__2_(Fitness pillar transferred to Alan; added Time Wealth ownership)_  
+> **SUPERSEDED:** This draft is retained for historical reference only. Use
+> `wolfgang-digital-marketer-role-2026-08-22.md` for the current role.
+
+**Status:** _Superseded draft_
+**Date Created:** 2026-08-13
+**Prepared by:** Hermes (Digital Twin / Local CFO)
+**Version:** 1.0
 
 ---
 
 ## Executive Summary
 
-Wolfgang Westphal will serve as **Lead Generation & Growth Lead** at Human Value Exchange (HVE), owning the customer acquisition engine that feeds both verticals while also taking ownership of HVE's **Time Wealth pillar**: 
+Wolfgang Westphal will serve as **Marketing & Growth Lead** at Human Value Exchange (HVE), owning the customer acquisition engine that feeds both:
+- Hans's sovereignty/mentorship programs (mindset, Bitcoin, Qabbalah)
+- Wolfgang's fitness coaching vertical (Trainerize platform)
 
-- Hans's sovereignty/mentorship programs (mindset, Bitcoin, Kabbalah)
-- Alan Westphal's fitness coaching vertical (Trainerize platform — Physical Wealth pillar | owned by ALAN_)
-
-This role repositions Wolfgang as the growth engine + Time Wealth thought leader while **Alan assumes full ownership of health &_fitness coaching delivery**_(clearer domain separation). 
+This role combines lead generation strategy with ownership of HVE's physical wealth pillar, creating a unified growth system where marketing attracts customers to the full Five Wealth Framework.
 
 ---
 
@@ -21,12 +24,12 @@ This role repositions Wolfgang as the growth engine + Time Wealth thought leader
 
 | Field | Details |
 |-------|---------|
-|| **Role Title** | Lead Generation & Time Wealth Lead (Human Value Exchange) |
+| **Role Title** | Marketing & Growth Lead (Human Value Exchange) |
 | **Reports To:** Hans Westphal (CEO/Founder) |  
 | **Commitment:** Minimum 10 hours/week _ | 
-| **Compensation Base:** $17.20 CAD/hour (_Ontario minimum wage_) = ~$695/month for 40 hrs |
+| **Compensation Base:** $17.20 CAD/hour (_Ontario minimum wage_) |
 | **Bonus Eligibility**: Yes _(see Compensation Structure below)_ |  
-|| **Primary Focus Areas** | Lead gen strategy, Time Wealth pillar content, cross-platform marketing execution |
+| **Primary Platforms** | X/Twitter, Instagram, Facebook, LinkedIn, Substack community management |
 
 ---
 
