@@ -2,7 +2,7 @@
 
 ## Repository Purpose
 
-`HansHWestphal/humanvalueexchange` is the **operational system** for Human Value Exchange (HVE) — an AI-powered company. It is a knowledge/documentation repository, not a software codebase. No build, test, or lint commands exist.
+`HansHWestphal/hve-knowledge-and-operations` is the **operational system** for Human Value Exchange (HVE) — an AI-powered company. It is a knowledge/documentation repository, not a software codebase. No build, test, or lint commands exist.
 
 ## Repository Structure
 
@@ -10,7 +10,7 @@
 |--------|---------|
 | `agent-communications/` | All inter-agent posts and announcements |
 | `content-intelligence/` | Content strategy, program briefs, editorial planning |
-| `instructions.md` | COO mission brief (v1.9) — canonical company context document |
+| `instructions.md` | Canonical HVE mission and company-context pointer |
 
 `instructions.md` is the only canonical mission/context source in this
 repository. Verify paths and current priorities against the present worktree;
@@ -49,7 +49,7 @@ At session start, identify yourself as Luna, HVE head architect and CTO, working
 | COO | Atlas | GPT-5.4 |
 | CTO / Head Architect | Luna | GPT-5.6 Luna via GitHub Copilot CLI |
 | Forge Engineer | Vulcan | Claude Sonnet 4.6 via GitHub Copilot CLI |
-| CFO | Hermes (local agent) | `qwen3.5:27b-128k` primary, `gpt-oss:20b` coding fallback, `qwen2.5:3b` deriver, and `nomic-embed-text` on DGX Spark |
+| CFO | `hve-cfo` (Hermes runtime) | `qwen3.5:27b-128k` primary, `gpt-oss:20b` coding fallback, `qwen2.5:3b` deriver, and `nomic-embed-text` on DGX Spark |
 | Chief Bitcoin Infrastructure & Payment Officer | Mercury | Phi-3.5-mini-instruct on Hailo-8L (Raspberry Pi 5 16GB + Hailo AI Hat v1) |
 | Chief Communications Officer | Apollo | Mattermost + Hailo-8 edge LLMs (Raspberry Pi 5 16GB + AI HAT+2) |
 
@@ -63,13 +63,13 @@ Hermes is a separate operational system, maintained in the `hermes-v2` repositor
 - **All posts go in `agent-communications/`** — never commit documentation to the repo root.
 - **Versioning in filenames** — increment the `vX.X` suffix for updates to existing topics (e.g., v1.0 → v1.1 for minor, v1.0 → v2.0 for major revisions).
 - **Bitcoin discount policy is undetermined** — do not represent a discount or eligibility rule as active until explicitly approved and recorded.
-- **Brand colors:** Forest green `#228b22` + Gold `#d4af37` (current); targeting black/white/silver rebrand for July 1, 2026 launch.
+- **Brand colors:** Forest green `#228b22` + Gold `#d4af37` (current); black/white/silver rebrand timing remains subject to the current launch plan.
 
 ## Company Context
 
 - **Legal entity:** HVEGlobal LTD (`info@hveglobal.ca`)
 - **Primary brand domain:** humanvalueexchange.com
-- **Pre-revenue stage** — First product launch July 1, 2026
+- **Pre-revenue stage** — soft launches over the coming months; official launch planned for early 2027
 - **Core framework:** Five Wealth Framework — Time, Physical, Mental, Social, and Financial wealth — made visible, measurable, and actionable through the Human Life Operating System
 - **Primary revenue channel:** Square.site (humanvalueexchange.square.site)
 - See `instructions.md` for the full COO mission brief with all platform details.

@@ -1,7 +1,10 @@
 # HVE Customer Service Agent – Copilot Studio Spec
-**v1.0 | Date: May 9, 2026**
+**v1.1 | Date: August 30, 2026**
 **Platform:** Microsoft Copilot Studio (M365 tenant: hveglobal.ca)**
 **Lead Developer:** Wolfgang Westphal
+
+> This August revision supersedes the May 9, 2026 launch, waitlist, and Bitcoin
+> pricing assumptions.
 
 ---
 
@@ -17,9 +20,9 @@
 
 ### 1. Program FAQ Handling
 Answer questions about all 6 HVE programs:
-- The Daily Transmission ($9/mo | $1.80 BTC) — launches July 1, 2026
-- Life Hacking Lab ($33/mo | $6.60 BTC) — launches Oct 1, 2026
-- Sovereign Mentorship ($333/mo | $66.60 BTC) — launches Jan 1, 2027
+- The Daily Transmission ($9/mo | Bitcoin price TBD) — soft-launch timing TBD; official launch planned for early 2027
+- Life Hacking Lab ($33/mo | Bitcoin price TBD) — soft-launch timing TBD; official launch planned for early 2027
+- Sovereign Mentorship ($333/mo | Bitcoin price TBD) — soft-launch timing TBD; official launch planned for early 2027
 - 1:1 Life Hacking Consultation (custom, available now)
 - 1:1 Bitcoin & Infinite Banking Coaching (custom, available now)
 - Fitness & Energy Mastery Coaching with Wolfgang (custom, available now)
@@ -34,9 +37,9 @@ Answer questions about all 6 HVE programs:
 - Link to Square.site booking/inquiry page
 - Capture preferred program interest before handoff
 
-### 4. Lead Capture (July 1 Waitlist)
-- Collect name + email from visitors interested in The Daily Transmission
-- Store leads for July 1 launch notification
+### 4. Lead Capture (Soft-Launch Interest)
+- Collect name + email from visitors interested in approved soft-launch offers
+- Store leads for approved launch communications
 - Integration: M365 (Dataverse or email list — TBD)
 
 ### 5. Escalation to Human Team
@@ -63,4 +66,5 @@ Answer questions about all 6 HVE programs:
 - Built in **Microsoft Copilot Studio** on the hveglobal.ca M365 tenant
 - Knowledge base: load programs-brief.md + instructions.md as grounding documents
 - Test thoroughly against all 6 program FAQs before go-live
-- Target go-live: **June 15, 2026** (2 weeks before July 1 launch)
+- Soft-launch timing: **To be determined**
+- Official HVE launch: **Early 2027**

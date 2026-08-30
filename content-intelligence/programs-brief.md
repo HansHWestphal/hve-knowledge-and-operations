@@ -1,5 +1,8 @@
 # Human Value Exchange – Programs & Services Brief
-**v1.1 | Date: May 9, 2026**
+**v1.2 | Date: August 30, 2026**
+
+> This August revision supersedes the May 9, 2026 launch schedule and Bitcoin
+> pricing assumptions. Earlier dates and pricing remain historical context only.
 
 ---
 
@@ -30,10 +33,9 @@ This is the master framework that governs everything HVE offers. All programs ma
 ## Full Program Lineup
 
 ### 1. The Daily Transmission ⭐ FLAGSHIP
-| | USD | Bitcoin |
-|--|-----|-------------------|
-| **Price** | $9/month | To be determined |
-| **Launch** | July 1, 2026 | July 1, 2026 |
+| | USD | Bitcoin | Status |
+|--|-----|---------|--------|
+| **Price** | $9/month | To be determined | Soft-launch preparation over the coming months; official launch planned for early 2027 |
 
 **Description:** Daily short, potent transmissions on Walter Russell cosmology, Transurfing Reality, mindfulness, meditation, energy mastery, and personal sovereignty. Your daily anchor in higher consciousness.
 
@@ -42,10 +44,9 @@ This is the master framework that governs everything HVE offers. All programs ma
 ---
 
 ### 2. Life Hacking Lab
-| | USD | Bitcoin |
-|--|-----|-------------------|
-| **Price** | $33/month | To be determined |
-| **Launch** | October 1, 2026 | October 1, 2026 |
+| | USD | Bitcoin | Status |
+|--|-----|---------|--------|
+| **Price** | $33/month | To be determined | Soft-launch timing to be determined; official launch planned for early 2027 |
 
 **Description:** In-depth monthly frameworks, guided meditations, reality creation exercises, workbooks, and live group calls. Where theory becomes daily practice.
 
@@ -54,10 +55,9 @@ This is the master framework that governs everything HVE offers. All programs ma
 ---
 
 ### 3. Sovereign Mentorship
-| | USD | Bitcoin |
-|--|-----|-------------------|
-| **Price** | $333/month | To be determined |
-| **Launch** | January 1, 2027 | January 1, 2027 |
+| | USD | Bitcoin | Status |
+|--|-----|---------|--------|
+| **Price** | $333/month | To be determined | Soft-launch timing to be determined; official launch planned for early 2027 |
 
 **Description:** Personalized 1:1 or small-group coaching with Hans on full-spectrum sovereignty (mind, body, energy, and finances). Includes the new one-year Kabbalah program.
 
@@ -107,21 +107,21 @@ This is the master framework that governs everything HVE offers. All programs ma
 
 ## Square.site Layout Directive
 
-1. **Hero / Above the Fold:** The Daily Transmission — "Now Available July 1, 2026" — with Bitcoin price prominently displayed
-2. **Bitcoin pricing** — to be determined; do not publish a discount badge
-3. **Life Hacking Lab** — "Coming October 2026"
-4. **Sovereign Mentorship** — "Coming January 2027"
-5. **1:1 Coaching options** (3 types) — "Available Now – Inquire"
+1. **Hero / Above the Fold:** Feature the active soft-launch offer or approved waitlist message.
+2. **Bitcoin pricing** — to be determined; do not publish a discount badge or price.
+3. **Life Hacking Lab** — soft-launch timing to be determined.
+4. **Sovereign Mentorship** — soft-launch timing to be determined.
+5. **1:1 Coaching options** (3 types) — "Available Now – Inquire", subject to current offer approval.
 
 ---
 
 ## Price Reference Card
 
-| Program | USD Price | Bitcoin Price | Launch |
+| Program | USD Price | Bitcoin Price | Status |
 |---------|-----------|--------------|--------|
-| The Daily Transmission | $9/month | To be determined | July 1, 2026 ⭐ |
-| Life Hacking Lab | $33/month | To be determined | Oct 1, 2026 |
-| Sovereign Mentorship | $333/month | To be determined | Jan 1, 2027 |
+| The Daily Transmission | $9/month | To be determined | Soft launch timing TBD; official launch early 2027 ⭐ |
+| Life Hacking Lab | $33/month | To be determined | Soft launch timing TBD; official launch early 2027 |
+| Sovereign Mentorship | $333/month | To be determined | Soft launch timing TBD; official launch early 2027 |
 | 1:1 Life Hacking Consultation | Custom | To be determined | Now |
 | 1:1 Bitcoin & IBC Coaching | Custom | To be determined | Now |
 | Fitness & Energy Mastery (Wolfgang) | Custom | To be determined | Now |

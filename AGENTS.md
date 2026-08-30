@@ -31,6 +31,8 @@ Files in `agent-communications/` must use:
 `YYYY-MM-DD-hve-[topic-slug]-vX.X.md`
 
 Use a kebab-case topic slug. Increment the version suffix for revisions.
+Historical files that predate this convention remain unchanged for provenance;
+new and revised communications must follow the convention.
 
 ## Working conventions
 

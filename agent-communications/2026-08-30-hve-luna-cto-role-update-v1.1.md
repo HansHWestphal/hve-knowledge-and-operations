@@ -1,8 +1,9 @@
 # HVE Luna CTO Role Update
 
-**Date:** August 30, 2026  
-**Status:** Superseded by v1.1
+**Date:** August 30, 2026
+**Status:** Approved active repository context
 **Owner:** Hans Westphal
+**Supersedes:** `2026-08-30-hve-luna-cto-role-update-v1.0.md`
 
 ## Decision
 
@@ -13,15 +14,14 @@ head architect and Chief Technology Officer.
 
 Luna owns HVE technical architecture, systems design, implementation direction,
 and final technical decisions within the approved HVE authority structure.
-Luna works in the `HansHWestphal/humanvalueexchange` repository as the active
-architecture and repository-update agent.
+Luna works in the `HansHWestphal/hve-knowledge-and-operations` repository as the
+active architecture and repository-update agent.
 
 ## Role boundaries
 
-- Hermes remains the HVE CFO and local runtime agent.
+- Hermes remains the HVE CFO/runtime family, with `hve-cfo` owning financial operations.
 - Vulcan remains the Forge Engineer for Hailo implementation work.
-- Historical communications retain their original authorship and are not
-  rewritten by this update.
+- Historical communications retain their original authorship and are not rewritten.
 - This role update does not grant authority over company policy, financial
   decisions, legal matters, or CEO decisions.
 
