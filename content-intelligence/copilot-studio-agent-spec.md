@@ -25,9 +25,9 @@ Answer questions about all 6 HVE programs:
 - Fitness & Energy Mastery Coaching with Wolfgang (custom, available now)
 
 ### 2. Bitcoin Discount Explanation
-- Clearly explain the **80% Bitcoin discount** on all paid tiers
-- Explain that this is a permanent policy reflecting HVE's mission
-- Guide users on how to pay in Bitcoin (process TBD once Bitcoin rail is decided)
+- State that Bitcoin pricing and any discount policy are currently undetermined
+- Do not promise a discount, eligibility rule, or payment advantage
+- Explain that payment instructions will be published after the policy and Bitcoin rail are approved
 
 ### 3. 1:1 Booking Direction
 - Direct users interested in 1:1 coaching to book a consultation

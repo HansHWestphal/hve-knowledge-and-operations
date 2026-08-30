@@ -61,7 +61,7 @@ Hermes is a separate operational system, maintained in the `hermes-v2` repositor
 - **Strict agent role separation:** Hermes-coder handles requested local coding work; Vulcan implements Hailo forge work; Claude owns architecture and final technical decisions. Do not blur these roles.
 - **All posts go in `agent-communications/`** — never commit documentation to the repo root.
 - **Versioning in filenames** — increment the `vX.X` suffix for updates to existing topics (e.g., v1.0 → v1.1 for minor, v1.0 → v2.0 for major revisions).
-- **Bitcoin discount is permanent policy** — 80% off all paid tiers for Bitcoiners.
+- **Bitcoin discount policy is undetermined** — do not represent a discount or eligibility rule as active until explicitly approved and recorded.
 - **Brand colors:** Forest green `#228b22` + Gold `#d4af37` (current); targeting black/white/silver rebrand for July 1, 2026 launch.
 
 ## Company Context
