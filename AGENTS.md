@@ -1,58 +1,96 @@
-# Hermes-coder Repository Instructions
+# Human Value Exchange Knowledge and Operations Repository
 
-## Identity
+## Repository purpose
 
-You are **Hermes-coder**, a local coding agent working inside:
+This repository is HVE's knowledge, coordination, and operational documentation
+layer. It is not the Hermes runtime, the HVE Life OS application repository, or
+a general-purpose software workspace.
 
-```text
-/home/hans/humanvalueexchange
-```
+Before making mission or strategy claims, read `instructions.md`. Treat the
+latest approved weekly decision ledger produced by the Monday 00:07 HVE mission
+review workflow as authoritative for active tasking, ownership, dates,
+commitments, and policy.
 
-If asked for your name, mission, or working directory, answer directly:
+`instructions.md` is authoritative for broad HVE mission and framework context.
+It does not override profile identity, current approved operating plans,
+decision-ledger events, or explicit CEO decisions. Dated operational details in
+it require current-source verification when a newer approved ledger or plan
+exists.
 
-```text
-Name: Hermes-coder
-Mission: Local coding agent for Human Value Exchange. Inspect, implement, review, document, and validate requested repository changes through available tools.
-Working directory: /home/hans/humanvalueexchange
-```
+## Context layering
 
-Inspect the repository before acting. Implement requested changes through available tools, preserve unrelated work, follow existing conventions, and verify results before claiming completion.
+- `SOUL.md` defines the active Hermes profile's identity, authority, style, and
+  safety boundaries.
+- `USER.md` defines Hans's durable profile and working preferences.
+- `MEMORY.md` contains durable HVE facts and pointers to authoritative sources.
+- This `AGENTS.md` defines how to work inside this repository.
+- `instructions.md` provides canonical HVE mission and company context.
+- The approved operating plan and weekly decision ledger govern current policy
+  and execution.
 
-When a task requires terminal, file, or search access, invoke the registered tool directly. Never print a simulated JSON tool call, markdown command proposal, or “I’ll run this” message in place of tool execution. If the tool is unavailable, state that plainly.
+Do not duplicate the contents of those files here. If sources conflict, do not
+improvise a merged interpretation. Follow the higher-authority source for its
+domain and escalate material conflicts to Hans.
 
-For repository inspection requests, the first assistant action must be an actual terminal, file, or search tool call. Do not preface it with a plan or simulated JSON.
+## Agent boundaries
 
-## Repository Scope
+Do not infer CFO, treasury, CTO, COO, legal, tax, or final-decision authority
+from repository content. Agents coordinate within their approved lane; Hans
+retains final authority over HVE purpose, values, priorities, commitments, and
+decisions.
 
-This repository is Human Value Exchange's operational knowledge and coordination layer. It is primarily documentation and operational artifacts, not a conventional application codebase. Do not claim that builds, tests, Docker deployment, or application code exist unless inspection confirms it.
+Do not import Alithya work, confidential client material, credentials, account
+numbers, tax figures, wallets, licenses, or other sensitive data into this
+repository.
 
-## Canonical Context
+## Repository structure
 
-- `instructions.md` is the canonical HVE mission and company-context document.
-- `mission/2026-05-27-grok-4.3-intern-interview-record.md` is a historical
-  artifact, not the current mission source.
-- When asked for the canonical mission, read `./instructions.md` directly
-  before searching or asking the user to choose another source. If a tool
-  reports it missing, verify the exact absolute path
-  `/home/hans/humanvalueexchange/instructions.md` before concluding it is
-  absent.
-- Do not rely on remembered, summarized, or historical session content for file
-  paths, versions, priorities, or repository purpose. Verify each claim against
-  files that exist in the current workspace.
-- Do not describe historical Grok interview records or other absent artifacts as
-  current HVE priorities unless the user explicitly asks for historical context.
-- Current mission framing is the Five Wealth Framework and Human Life Operating
-  System: Time, Physical, Mental, Social, and Financial wealth are measured and
-  coordinated to support human sovereignty. Humans retain purpose, judgment,
-  values, data ownership, and direction; agents accelerate intelligence,
-  analysis, coordination, and execution.
+- `agent-communications/` — inter-agent posts and announcements
+- `content-intelligence/` — content strategy, program briefs, and editorial planning
+- `instructions.md` — canonical HVE mission and company-context document
 
-## Working Rules
+All new agent posts belong in `agent-communications/`. Do not place operational
+communications in the repository root.
 
-- Make precise, scoped changes.
-- Do not invent files, APIs, commands, or repository structure.
-- Preserve historical communications and unrelated user changes.
-- Use `apply_patch` for manual edits.
-- Check `git status` before and after changes.
-- Surface uncertainty instead of presenting guesses as facts.
-- Do not commit, push, delete broad paths, or perform destructive actions without explicit approval.
+## File naming
+
+Files in `agent-communications/` must use:
+
+`YYYY-MM-DD-hve-[topic-slug]-vX.X.md`
+
+Use a kebab-case topic slug. Increment the version suffix for revisions to an
+existing topic.
+
+## Working conventions
+
+- Inspect existing files before editing.
+- Preserve historical communications and unrelated changes.
+- Distinguish facts, decisions, proposals, assumptions, experiments, and open questions.
+- Do not treat chat, external claims, or informal notes as approved policy.
+- Use the latest approved weekly decision ledger for active tasking and policy.
+- If no authoritative ledger entry exists, escalate rather than infer.
+- Record material decisions with owner, rationale, status, effective date, review date,
+  and verification evidence when the operating workflow supports it.
+- Keep shipped content practical: translate sovereignty or philosophy into a decision,
+  observable behavior, or next action.
+- Avoid hype, doctrine, unsupported authority claims, generic motivation, and status
+  theater.
+- Do not invent approvals, commitments, dates, evidence, ownership, or completion.
+- Do not modify Hermes profile files from this repository unless explicitly requested;
+  profile configuration belongs under the relevant profile directory.
+- GitHub is the system of record for approved durable HVE artifacts, decisions,
+  and operating documentation. Commit and push each approved artifact as part of
+  the normal workflow so it is visible and shareable to humans and agents.
+- Do not commit or push drafts, unapproved policy, transient notes, runtime state,
+  credentials, or sensitive data. Verify the diff, filename, provenance, and
+  approval status before committing.
+- A local file or chat message is not authoritative until the approved artifact
+  has been successfully committed and pushed to GitHub.
+- If commit or push fails, report the failure clearly; do not claim the artifact
+  is recorded or complete.
+
+## Validation
+
+This is primarily a Markdown and operational-documentation repository. Do not claim
+that builds, tests, linters, deployment systems, or application code exist unless
+the current worktree explicitly contains and requires them.
