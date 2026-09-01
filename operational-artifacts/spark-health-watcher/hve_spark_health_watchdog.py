@@ -35,6 +35,12 @@ OLLAMA_BASE = os.environ.get("OLLAMA_HEALTH_URL", "http://127.0.0.1:11434")
 ALERT_ROUTE = os.environ.get("HVE_WATCHDOG_ALERT_ROUTE", "whatsapp:<configured-Hans-destination>")
 STALE_METADATA_SECONDS = 2 * 60 * 60
 RECENT_ERROR_WINDOW = "-30 min"
+NONCRITICAL_CRON_FAILURE_THRESHOLD = 3
+CRITICAL_CRON_JOBS = {
+    name.strip()
+    for name in os.environ.get("HVE_CRITICAL_CRON_JOBS", "").split(",")
+    if name.strip()
+}
 
 # This is the only profile registry used by the watcher. Retired collector/default
 # profiles are intentionally absent and therefore cannot affect health calculations.
@@ -135,10 +141,36 @@ def run_cmd(command: list[str], timeout: int = 8) -> dict[str, Any]:
     return {"ok": result.returncode == 0, "returncode": result.returncode, "stdout": result.stdout.strip(), "stderr": result.stderr.strip()}
 
 
-def add_check(checks: dict[str, Any], findings: list[dict[str, str]], name: str, status: str, detail: str, **data: Any) -> None:
-    checks[name] = {"status": status, "detail": detail, **data}
+def add_check(
+    checks: dict[str, Any],
+    findings: list[dict[str, Any]],
+    name: str,
+    status: str,
+    detail: str,
+    *,
+    event_type: str = "health_check",
+    impact: str | None = None,
+    fingerprint_key: str | None = None,
+    **data: Any,
+) -> None:
+    checks[name] = {
+        "status": status,
+        "detail": detail,
+        "event_type": event_type,
+        "impact": impact or ("actionable" if status in {"warn", "fail"} else "none"),
+        **data,
+    }
     if status in {"warn", "fail"}:
-        findings.append({"id": name, "severity": status, "detail": detail})
+        findings.append(
+            {
+                "id": name,
+                "severity": status,
+                "detail": detail,
+                "event_type": event_type,
+                "impact": impact or ("actionable" if status in {"warn", "fail"} else "none"),
+                "fingerprint_key": fingerprint_key or name,
+            }
+        )
 
 
 def process_cmdline(pid: int) -> str | None:
@@ -341,7 +373,15 @@ def check_profile(name: str, spec: dict[str, Any], checks: dict[str, Any], findi
             age = metadata_age(state.get("updated_at"))
             stale = age is None or age > STALE_METADATA_SECONDS
             metadata_detail = f"gateway_state={state.get('gateway_state', 'unknown')} age={int(age // 60) if age is not None else 'unknown'}m"
-            add_check(checks, findings, f"{prefix}.metadata", "warn" if stale else "pass", metadata_detail + (" (advisory/stale)" if stale else ""))
+            add_check(
+                checks,
+                findings,
+                f"{prefix}.metadata",
+                "warn" if stale else "pass",
+                metadata_detail + (" (advisory/stale)" if stale else ""),
+                event_type="stale_metadata" if stale else "health_check",
+                impact="none" if stale else None,
+            )
             platforms = state.get("platforms") if isinstance(state.get("platforms"), dict) else {}
             for channel in spec.get("required_channels", ()):
                 channel_data = platforms.get(channel) if isinstance(platforms.get(channel), dict) else {}
@@ -398,38 +438,75 @@ def check_scheduler(checks: dict[str, Any], findings: list[dict[str, str]]) -> N
         return
     active = [job for job in raw_jobs if isinstance(job, dict) and job.get("enabled")]
     overdue: list[str] = []
-    failures: list[str] = []
+    failures: list[tuple[str, int, str]] = []
     for job in active:
         name = str(job.get("name", job.get("id", "unknown")))
         last_status = str(job.get("last_status", ""))
         streak = int(job.get("failure_streak") or 0)
         if streak or last_status in {"error", "failed"}:
-            failures.append(f"{name} streak={streak} status={last_status or 'unknown'}")
+            failures.append((name, streak, last_status or "unknown"))
         next_run = job.get("next_run_at")
         age = metadata_age(next_run)
         if age is not None and age > 10 * 60:
             overdue.append(name)
-    add_check(checks, findings, "hermes.cron_failures", "warn" if failures else "pass", "; ".join(failures[:6]) if failures else "no active job failure streaks")
+    for name, streak, last_status in failures:
+        actionable = name in CRITICAL_CRON_JOBS or streak >= NONCRITICAL_CRON_FAILURE_THRESHOLD
+        add_check(
+            checks,
+            findings,
+            f"hermes.cron_failure.{name}",
+            "warn",
+            f"{name} streak={streak} status={last_status}",
+            event_type="cron_failure",
+            impact="actionable" if actionable else "none",
+            fingerprint_key=f"cron:{name}",
+        )
+    add_check(
+        checks,
+        findings,
+        "hermes.cron_failures",
+        "pass",
+        "no active job failure streaks" if not failures else f"events={len(failures)}; see per-job findings",
+    )
     add_check(checks, findings, "hermes.cron_overdue", "warn" if overdue else "pass", ", ".join(overdue[:6]) if overdue else "no overdue active jobs")
     add_check(checks, findings, "hermes.cron_registry", "pass", f"active_jobs={len(active)}")
 
 
-def check_journal(checks: dict[str, Any], findings: list[dict[str, str]]) -> None:
+def check_journal(checks: dict[str, Any], findings: list[dict[str, Any]]) -> None:
     units = [spec["service"] for spec in PROFILE_REGISTRY.values() if spec.get("service")] + ["hermes-mcp.service", "hermes-proton-worker.service"]
-    errors: list[str] = []
+    errors: list[tuple[str, str]] = []
     for unit in units:
         result = run_cmd(["journalctl", "--user", "-u", unit, "--since", RECENT_ERROR_WINDOW, "--no-pager", "-o", "cat"], timeout=8)
         if not result["ok"]:
             continue
         matches = [line.strip() for line in result["stdout"].splitlines() if re.search(r"\b(error|failed|traceback|exception)\b", line, re.IGNORECASE)]
         if matches:
-            errors.append(f"{unit}: {matches[-1][:180]}")
-    add_check(checks, findings, "host.recent_relevant_errors", "warn" if errors else "pass", " | ".join(errors[:5]) if errors else "none detected in selected user services")
+            errors.append((unit, matches[-1][:180]))
+    for unit, detail in errors:
+        policy_event = "RobotsBlocked" in detail or "robots policy" in detail.lower()
+        normalized_detail = re.sub(r"\d{4}-\d{2}-\d{2}[^ ]*", "", detail)[:120]
+        add_check(
+            checks,
+            findings,
+            f"host.recent_relevant_errors.{unit}",
+            "warn",
+            detail,
+            event_type="expected_policy_block" if policy_event else "journal_error",
+            impact="none" if policy_event else "actionable",
+            fingerprint_key=f"{unit}:robots-blocked" if policy_event else f"{unit}:{normalized_detail}",
+        )
+    add_check(
+        checks,
+        findings,
+        "host.recent_relevant_errors",
+        "pass",
+        "none detected in selected user services" if not errors else f"events={len(errors)}; see per-service findings",
+    )
 
 
 def collect(scenario: str) -> dict[str, Any]:
     checks: dict[str, Any] = {}
-    findings: list[dict[str, str]] = []
+    findings: list[dict[str, Any]] = []
     check_host(checks, findings)
     check_ollama(checks, findings)
     for name, spec in PROFILE_REGISTRY.items():
@@ -440,12 +517,14 @@ def collect(scenario: str) -> dict[str, Any]:
         add_check(checks, findings, "test.synthetic_failure", "fail", "synthetic failure scenario")
     elif scenario == "warn":
         add_check(checks, findings, "test.synthetic_warning", "warn", "synthetic warning scenario")
-    severity = "critical" if any(item["severity"] == "fail" for item in findings) else "degraded" if findings else "healthy"
+    actionable = [item for item in findings if item.get("impact") != "none"]
+    severity = "critical" if any(item["severity"] == "fail" for item in actionable) else "degraded" if actionable else "healthy"
     return {"schema": "hve.spark.health.v2", "collected_at": iso(), "overall": severity, "alert_route": ALERT_ROUTE, "included_profiles": list(PROFILE_REGISTRY), "excluded_profiles": ["hanshermesagentcollector", "default"], "checks": checks, "findings": findings}
 
 
 def fingerprint(item: dict[str, str]) -> str:
-    return hashlib.sha256(item["id"].encode("utf-8")).hexdigest()[:16]
+    key = str(item.get("fingerprint_key") or item["id"])
+    return hashlib.sha256(key.encode("utf-8")).hexdigest()[:16]
 
 
 def load_state(path: Path) -> tuple[dict[str, Any], str | None]:
@@ -486,19 +565,40 @@ def transition_alerts(data: dict[str, Any], state_path: Path, evidence_dir: Path
         for item in data["findings"]:
             fp = fingerprint(item)
             old = previous.get(fp)
-            record = {"id": item["id"], "severity": item["severity"], "detail": item["detail"], "last_seen": iso(), "first_seen": old.get("first_seen", iso()) if isinstance(old, dict) else iso()}
+            record = {
+                "id": item["id"],
+                "severity": item["severity"],
+                "event_type": item.get("event_type", "health_check"),
+                "impact": item.get("impact", "actionable"),
+                "detail": item["detail"],
+                "last_seen": iso(),
+                "first_seen": old.get("first_seen", iso()) if isinstance(old, dict) else iso(),
+                "occurrences": int(old.get("occurrences", 0)) + 1 if isinstance(old, dict) else 1,
+            }
             current[fp] = record
             if not isinstance(old, dict):
-                messages.append(f"NEW {item['severity'].upper()} {item['id']}: {item['detail']}")
-            elif old.get("severity") != item["severity"]:
+                label = "ADVISORY" if item.get("impact") == "none" else item["severity"].upper()
+                messages.append(f"NEW {label} {item['id']}: {item['detail']}")
+            elif (
+                old.get("severity") != item["severity"]
+                or old.get("impact") != item.get("impact", "actionable")
+            ):
                 old_rank = {"warn": 1, "fail": 2}.get(str(old.get("severity")), 0)
                 new_rank = {"warn": 1, "fail": 2}.get(item["severity"], 0)
-                transition = "WORSENING" if new_rank > old_rank else "IMPROVED"
-                messages.append(f"{transition} {item['severity'].upper()} {item['id']}: {item['detail']}")
+                old_impact_rank = 1 if old.get("impact") != "none" else 0
+                new_impact_rank = 1 if item.get("impact") != "none" else 0
+                transition = "WORSENING" if (new_rank, new_impact_rank) > (old_rank, old_impact_rank) else "IMPROVED"
+                label = "ADVISORY" if item.get("impact") == "none" else item["severity"].upper()
+                messages.append(f"{transition} {label} {item['id']}: {item['detail']}")
         for fp, old in previous.items():
             if fp not in current and isinstance(old, dict):
-                messages.append(f"RECOVERY {str(old.get('severity', 'warn')).upper()} {old.get('id', fp)}")
-        state = {"schema": "hve.spark.health.alert-state.v1", "updated_at": iso(), "incidents": current}
+                label = "ADVISORY" if old.get("impact") == "none" else str(old.get("severity", "warn")).upper()
+                messages.append(f"RECOVERY {label} {old.get('id', fp)}")
+        state = {
+            "schema": "hve.spark.health.alert-state.v2",
+            "updated_at": iso(),
+            "incidents": current,
+        }
         save_state(state_path, state)
         fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
     return messages, evidence_path
@@ -513,7 +613,8 @@ def main() -> int:
     data = collect(args.scenario)
     messages, evidence_path = transition_alerts(data, args.state_path, args.evidence_dir)
     if messages:
-        print(f"HVE Spark health alert — {data['overall'].upper()} ({iso()})")
+        heading = "learning event" if data["overall"] == "healthy" else "health alert"
+        print(f"HVE Spark {heading} — {data['overall'].upper()} ({iso()})")
         print(f"Route: {ALERT_ROUTE}")
         for message in messages:
             print(f"• {message}")

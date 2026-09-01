@@ -9,6 +9,12 @@ watcher:
   alert_route: "whatsapp:<Hans-approved-destination>"
   state_path: "${HERMES_HOME}/profiles/hanshermesagent/workspace/spark-health-watchdog/alert-state.json"
   evidence_dir: "${HERMES_HOME}/profiles/hanshermesagent/workspace/spark-health-watchdog/evidence"
+  learning:
+    first_observation_alerts: true
+    repeat_alerts: false
+    advisory_events_affect_health: false
+    critical_cron_jobs: []
+    noncritical_cron_failure_threshold: 3
   environment:
     HERMES_HOME: "/path/to/hermes"
     HVE_WATCHDOG_ALERT_ROUTE: "whatsapp:<Hans-approved-destination>"
