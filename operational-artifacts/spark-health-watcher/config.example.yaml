@@ -1,0 +1,52 @@
+# Reference configuration for the HVE Spark health watcher.
+# The live Hermes cron registry remains machine-local under HERMES_HOME.
+
+watcher:
+  name: twin-spark-health-watchdog
+  schedule: "every 30m"
+  mode: no-agent
+  script: hve_spark_health_watchdog.py
+  alert_route: "whatsapp:<Hans-approved-destination>"
+  state_path: "${HERMES_HOME}/profiles/hanshermesagent/workspace/spark-health-watchdog/alert-state.json"
+  evidence_dir: "${HERMES_HOME}/profiles/hanshermesagent/workspace/spark-health-watchdog/evidence"
+
+profiles:
+  included:
+    - name: hanshermesagent
+      lifecycle: active
+      required_channels: [whatsapp]
+      disabled_channels: [telegram]
+      service: hermes-gateway-hanshermesagent.service
+    - name: hve-librarian
+      lifecycle: active
+      required_channels: [telegram]
+      disabled_channels: [whatsapp]
+      service: hermes-gateway-hve-librarian.service
+    - name: hermes-coder
+      lifecycle: active
+      required_channels: []
+      service: hermes-coder-worker.service
+    - name: hve-alpha
+      lifecycle: planned/standby
+      required_channels: []
+      service: null
+    - name: hve-cfo
+      lifecycle: planned/standby
+      required_channels: []
+      service: null
+  excluded:
+    - hanshermesagentcollector
+    - default
+
+ollama:
+  endpoint: http://127.0.0.1:11434
+  required_models:
+    qwen3.8-hermes:27b-128k:
+      context: 131072
+      workloads: [Hermes active profiles, Hermes-Coder]
+    qwen3.8-distill-2b:q4_k_m:
+      context: 32768
+      workloads: [local extraction and auxiliary workloads]
+    nomic-embed-text:latest:
+      context: 2048
+      workloads: [embedding workloads]
