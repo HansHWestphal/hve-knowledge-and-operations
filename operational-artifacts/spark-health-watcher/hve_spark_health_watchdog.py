@@ -36,7 +36,7 @@ DEFAULT_STATE = PROFILE_HOME / "workspace" / "spark-health-watchdog" / "alert-st
 DEFAULT_EVIDENCE = PROFILE_HOME / "workspace" / "spark-health-watchdog" / "evidence"
 JOBS_PATH = PROFILE_HOME / "cron" / "jobs.json"
 OLLAMA_BASE = os.environ.get("OLLAMA_HEALTH_URL", "http://127.0.0.1:11434")
-ALERT_ROUTE = os.environ.get("HVE_WATCHDOG_ALERT_ROUTE", "whatsapp:<configured-Hans-destination>")
+ALERT_ROUTE = os.environ.get("HVE_WATCHDOG_ALERT_ROUTE", "whatsapp:98938950533173@lid")
 STALE_METADATA_SECONDS = 2 * 60 * 60
 RECENT_ERROR_WINDOW = "-30 min"
 NONCRITICAL_CRON_FAILURE_THRESHOLD = 3
@@ -617,8 +617,7 @@ def main() -> int:
     data = collect(args.scenario)
     messages, evidence_path = transition_alerts(data, args.state_path, args.evidence_dir)
     if messages:
-        heading = "learning event" if data["overall"] == "healthy" else "health alert"
-        print(f"HVE Spark {heading} — {data['overall'].upper()} ({iso()})")
+        print(f"HVE Spark health alert — {data['overall'].upper()} ({iso()})")
         print(f"Route: {ALERT_ROUTE}")
         for message in messages:
             print(f"• {message}")
