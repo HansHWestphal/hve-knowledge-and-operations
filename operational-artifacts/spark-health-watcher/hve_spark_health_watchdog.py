@@ -24,7 +24,11 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
-HERMES_HOME = Path(os.environ.get("HERMES_HOME", str(Path.home() / ".hermes")))
+_configured_hermes_home = Path(os.environ.get("HERMES_HOME", str(Path.home() / ".hermes")))
+if _configured_hermes_home.name == "hanshermesagent" and _configured_hermes_home.parent.name == "profiles":
+    HERMES_HOME = _configured_hermes_home.parent.parent
+else:
+    HERMES_HOME = _configured_hermes_home
 PROFILE_HOME = HERMES_HOME / "profiles" / "hanshermesagent"
 HVE_AGENT_ROOT = Path(os.environ.get("HVE_AGENT_ROOT", str(Path.home() / "hanshermesagent")))
 HVE_KNOWLEDGE_ROOT = Path(os.environ.get("HVE_KNOWLEDGE_ROOT", str(Path.home() / ".hve-knowledge")))

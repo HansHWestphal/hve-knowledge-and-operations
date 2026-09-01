@@ -49,6 +49,9 @@ Keep the cron job's `script` value as the basename
 `hve_spark_health_watchdog.py`; do not use an absolute path. Set `HERMES_HOME`,
 `HVE_WATCHDOG_ALERT_ROUTE`, and any knowledge-layer dependency overrides in the
 deployment environment rather than committing those values here.
+The watcher accepts either the Hermes installation root or the
+profile-local `HERMES_HOME` exported by a Hermes gateway and normalizes the
+path before probing other profiles.
 Set `HVE_CRITICAL_CRON_JOBS` to a comma-separated list when a specific cron job
 must escalate immediately instead of using the non-critical threshold.
 
