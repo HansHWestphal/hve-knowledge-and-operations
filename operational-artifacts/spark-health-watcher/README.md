@@ -1,6 +1,6 @@
 # HVE Spark Health Watcher
 
-This directory contains the portable reference implementation and deployment
+This directory contains the canonical portable implementation and deployment
 configuration for the holistic DGX Spark health watcher used by HVE.
 
 ## Runtime contract
@@ -35,7 +35,13 @@ Excluded profiles:
 ## Deployment notes
 
 The live deployment uses machine-local paths under `/home/hans/.hermes` and
-the Hermes profile cron registry. Set `HERMES_HOME`,
+the Hermes profile cron registry. Install the executable under the profile-local
+path expected by Hermes:
+
+`$HERMES_HOME/profiles/hanshermesagent/scripts/hve_spark_health_watchdog.py`
+
+Keep the cron job's `script` value as the basename
+`hve_spark_health_watchdog.py`; do not use an absolute path. Set `HERMES_HOME`,
 `HVE_WATCHDOG_ALERT_ROUTE`, and any knowledge-layer dependency overrides in the
 deployment environment rather than committing those values here.
 

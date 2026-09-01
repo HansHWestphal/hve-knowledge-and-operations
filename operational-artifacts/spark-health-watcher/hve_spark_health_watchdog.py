@@ -26,6 +26,8 @@ from typing import Any
 
 HERMES_HOME = Path(os.environ.get("HERMES_HOME", str(Path.home() / ".hermes")))
 PROFILE_HOME = HERMES_HOME / "profiles" / "hanshermesagent"
+HVE_AGENT_ROOT = Path(os.environ.get("HVE_AGENT_ROOT", str(Path.home() / "hanshermesagent")))
+HVE_KNOWLEDGE_ROOT = Path(os.environ.get("HVE_KNOWLEDGE_ROOT", str(Path.home() / ".hve-knowledge")))
 DEFAULT_STATE = PROFILE_HOME / "workspace" / "spark-health-watchdog" / "alert-state.json"
 DEFAULT_EVIDENCE = PROFILE_HOME / "workspace" / "spark-health-watchdog" / "evidence"
 JOBS_PATH = PROFILE_HOME / "cron" / "jobs.json"
@@ -61,9 +63,9 @@ PROFILE_REGISTRY: dict[str, dict[str, Any]] = {
         "disabled_channels": ("whatsapp",),
         "process_marker": "--profile hve-librarian gateway run",
         "required_files": (
-            Path(os.environ.get("HVE_LINK_COLLECTOR_SERVER", "/opt/hve-knowledge-layer/link_collector_server.py")),
+            HVE_AGENT_ROOT / "mcp" / "link_collector_server.py",
             Path("/opt/hve-knowledge-layer/current/src"),
-            Path(os.environ.get("HVE_KNOWLEDGE_PYTHON", "/opt/hve-knowledge-layer/venv/bin/python3")),
+            HVE_KNOWLEDGE_ROOT / "venv" / "bin" / "python3",
         ),
         "databases": (
             HERMES_HOME / "profiles" / "hve-librarian" / "state.db",
