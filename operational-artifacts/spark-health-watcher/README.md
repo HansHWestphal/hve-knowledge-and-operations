@@ -55,6 +55,12 @@ path before probing other profiles.
 Set `HVE_CRITICAL_CRON_JOBS` to a comma-separated list when a specific cron job
 must escalate immediately instead of using the non-critical threshold.
 
+The active deployment is the profile-local copy under
+`$HERMES_HOME/profiles/hanshermesagent/scripts/`, which is byte-identical to
+the repository implementation. The older shared copy under
+`$HERMES_HOME/scripts/hve_spark_health_watchdog.py` is a stale legacy artifact
+and is not referenced by the active cron job; do not use it for deployment.
+
 The repository copy intentionally contains no credentials, WhatsApp
 identifiers, runtime databases, gateway state, session files, or evidence
 outputs. The `config.example.yaml` file is a non-secret reference for the
