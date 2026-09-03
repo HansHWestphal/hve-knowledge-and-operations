@@ -1,10 +1,10 @@
 # HVE Agent Communication: Mercury Hailo + CPU Split Build Decisions
 
-**Date:** 2026-09-02  
-**Owner:** Luna, HVE Head Architect and CTO  
-**Authority:** Hans Westphal, HVE CEO  
-**Status:** Approved build basis; repository implementation authorized  
-**Source specification:** [`Mercury-Node-Hailo-CPU-Split-Architecture.pdf`](https://github.com/humanvalueexchange/mercury-node/blob/main/docs/Mercury-Node-Hailo-CPU-Split-Architecture.pdf)  
+**Date:** 2026-09-02
+**Owner:** Luna, HVE Head Architect and CTO
+**Authority:** Hans Westphal, HVE CEO
+**Status:** Approved build basis; repository implementation authorized
+**Source specification:** [`Mercury-Node-Hailo-CPU-Split-Architecture.pdf`](https://github.com/humanvalueexchange/mercury-node/blob/main/docs/Mercury-Node-Hailo-CPU-Split-Architecture.pdf)
 **Repository:** [`humanvalueexchange/mercury-node`](https://github.com/humanvalueexchange/mercury-node)
 
 ## Purpose
@@ -143,4 +143,3 @@ boot or PCIe settings, pulling models, or deploying to Mercury.
 - Mercury repository retirement and architecture-boundary documentation was
   published in commit
   [`98d4c7a`](https://github.com/humanvalueexchange/mercury-node/commit/98d4c7a0ef00ca0ed74e5051cc2677cf9e4307cd).
-
