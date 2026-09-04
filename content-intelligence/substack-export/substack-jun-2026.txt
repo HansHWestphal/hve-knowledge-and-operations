@@ -1,0 +1,166 @@
+# Human Value Exchange (humanvalueexchange.com) — Substack posts for June 2026
+# Export for HVE content seeding — Time Wealth / AI in everyday life & work
+# Audience: Mika + Hans monthly Substack drafts
+# Source: Substack public API (api/v1/archive + api/v1/posts/{slug})
+# Post count: 1
+# Generated: 2026-08-01
+
+========================================================================
+POST 1/1
+Date:     2026-06-18T01:28:37.477Z
+Title:    Becoming a Frontier Professional
+Subtitle: What the new cost transparency in GitHub Copilot CLI, Copilot Cowork, Scout, and Microsoft’s 2026 Work Trend Index are teaching those of us trying to work at the edge.
+URL:      https://humanvalueexchange.com/p/becoming-a-frontier-professional
+Slug:     becoming-a-frontier-professional
+ID:       202518408
+Audience: everyone
+------------------------------------------------------------------------
+(https://substackcdn.com/image/fetch/$s_!H7dS!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F135780de-3bda-400d-9932-af0f7062bd61_784x1168.jpeg)
+
+A few weeks ago I wrote about running GitHub Copilot CLI with OpenClaw and what it felt like to have a much more powerful local agentic workflow sitting alongside my cloud tools. Since then, three things landed in quick succession that changed how I’m thinking about the work.
+
+GitHub added a live AI Credit counter to Copilot CLI. Microsoft took Copilot Cowork to general availability and expanded Scout. And Microsoft published its 2026 Work Trend Index — a large study of how people are actually using AI at work.
+
+Taken together, these three signals point to something bigger than new features. They point to a new way of working that most organizations are not yet built for.
+
+Microsoft calls the people who are operating at this level Frontier Professionals. I’ve been quietly trying to become one.
+
+The Data That Made It Real
+
+The 2026 Work Trend Index found that while 66% of AI users say they’re now spending more time on high-value work, and 58% say they’re producing work they couldn’t have done a year ago, only 19% are in organizations actually designed to support this shift.
+
+There’s a name for the gap: the Transformation Paradox. Individuals are ready to work differently. Most organizations are still structured, measured, and incentivized for the old way.
+
+Microsoft also identified a small group — roughly 16% of AI users — who consistently behave differently. They’re the ones using agents for multi-step work, deliberately redesigning workflows around what AI can do, and helping set standards for their teams. These are the Frontier Professionals.
+
+What struck me is how concrete their behaviors are. They don’t just “use AI more.” They treat it as a judgment architecture problem. They pause before starting work to decide what should be done by a human versus an agent. They intentionally do some work without AI to keep their own capabilities sharp. They treat agent output as something that needs to be reviewed, refined, and sometimes rejected.
+
+This isn’t about being an early adopter of tools. It’s about developing a different operating rhythm.
+
+The New Environment We’re Working In
+
+We now have three distinct layers in the Microsoft ecosystem:
+
+-
+Scout (always-on background coordination)
+
+-
+Copilot Cowork (on-demand, complex, multi-step agentic work)
+
+-
+GitHub Copilot CLI / Chat (developer-native work with now-visible costs)
+
+Each layer has different economics and different trust requirements. Running all three effectively means managing three separate meters and understanding which layer a given task actually needs.
+
+The new AI Credit counter in Copilot CLI makes one part of this visible in real time. For the first time, I can see what a long agentic session actually costs in near real time. That visibility changes behavior. It forces more intentional model selection instead of defaulting to the strongest (and most expensive) model for everything.
+
+I’ve started treating the counter as a feedback mechanism rather than just a budget tracker. It’s helping me develop better judgment about when frontier models are genuinely worth it and when lighter models (or local ones) are sufficient.
+
+The Honest Trade-Off
+
+At Human Value Exchange we’re deeply committed to building sovereign, on-prem systems. We’re investing in local infrastructure and reducing long-term dependency on hyperscalers.
+
+At the same time, I’m still using Claude Sonnet 4.6 (and occasionally Opus) for significant portions of our most important work.
+
+This isn’t a contradiction I’m trying to resolve away. It’s a deliberate, temporary trade-off. Right now, for complex agentic reasoning — the kind of work that requires maintaining coherence across many steps and making high-stakes decisions — the frontier models are still meaningfully better. The performance delta is large enough that it affects what we can build and how fast we can move.
+
+So we’re doing both. We’re using the best available models where they create real advantage, while aggressively building sovereign capability in parallel. The goal isn’t to stay on cloud models forever. The goal is to use them intelligently while we close the gap on our own infrastructure.
+
+This is the pragmatic stance I’ve landed on. I’m not pretending local models are already good enough when they’re not. I’m also not ignoring the strategic direction we’re committed to.
+
+What I’m Actually Doing Right Now
+
+I’m still very early in this. Ring zero, if I’m being honest.
+
+What I’m focused on at the moment:
+
+-
+Using the AI Credit counter in Copilot CLI as a real-time feedback loop rather than just a cost meter.
+
+-
+Being more deliberate about which layer of the stack a task belongs in (Scout, Cowork, or CLI).
+
+-
+Treating agent output as something that needs active judgment, not passive acceptance.
+
+-
+Building our own systems (Hermes, our Copilot Skill Systems, and the Obsidian knowledge layer) in parallel so we’re not just consumers of the cloud stack.
+
+-
+Trying to model this visibly for the team instead of just talking about it.
+
+None of this feels fully formed yet. I’m figuring it out in public because I suspect a lot of other builders are in the same place — trying to operate at a higher level with tools that are still evolving quickly.
+
+Closing Reflection
+
+The era of flying blind on AI costs is over. We now have visibility into what things actually cost and what the new agentic tools can do.
+
+But visibility and powerful tools are not the same as capability.
+
+The people who will do well in this period aren’t necessarily the ones with the biggest budgets or the most advanced models. They’re the ones developing better judgment — about when to use frontier models and when not to, about which work should be done by agents and which should stay with humans, and about how to turn every agent interaction into something the organization actually learns from.
+
+I’m trying to become that kind of professional.
+
+I don’t think I’m there yet. But I’m clear on what “there” looks like, and I’m working on it deliberately.
+
+If you’re also in the early stages of trying to work this way — figuring out how to use these new tools and signals without losing your own judgment — I’d be interested in hearing what you’re learning too.
+
+We’re all in ring zero on this together.
+
+For Curious Readers: Further Reading & Resources
+
+If you want to go deeper into the ideas discussed in this piece, here are the most relevant resources:
+
+Microsoft 2026 Work Trend Index & Frontier Thinking
+
+-
+ Microsoft 2026 Work Trend Index Annual Report (https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization)— The full report behind the data on Frontier Professionals and the Transformation Paradox.
+
+-
+ What is a Frontier Professional? (https://learnworkecosystemlibrary.com/glossary/frontier-professional/) — Microsoft’s own breakdown of the behaviors that separate high performers.
+
+GitHub Copilot CLI & AI Credits
+
+-
+ GitHub Copilot CLI Documentation (https://docs.github.com/en/copilot/how-tos/use-copilot-cli) — Official docs, including the new /usage command and AI Credit visibility.
+
+-
+ Understanding GitHub Copilot Pricing & AI Credits (https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises)— How the credit system works across plans.
+
+Microsoft 365 Copilot Cowork & Scout
+
+-
+ Copilot Cowork General Availability Announcement (https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/) — Microsoft’s official post on the June 2026 launch.
+
+-
+ Copilot Cowork Cost Estimator (https://aka.ms/CustomerCoworkEstimator) — Microsoft’s spreadsheet tool for estimating Cowork credit consumption.
+
+-
+ Microsoft Scout (Autopilot) Overview (https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/)— What Scout does and how it differs from Cowork.
+
+Model Pricing & Cost Transparency
+
+-
+ Anthropic Claude Pricing (https://www.anthropic.com/pricing) — Current input/output pricing for Claude models.
+
+-
+ OpenAI GPT Pricing (https://openai.com/api/pricing/) — Pricing for GPT-5 series models.
+
+Related Reading from Human Value Exchange
+
+-
+ GitHub Copilot CLI + OpenClaw Update (https://humanvalueexchange.com/p/github-copilot-cli-my-openclaw-update) — The post this one builds directly on.
+
+Deeper Concepts
+
+-
+ Loop Engineering for Agents (https://x.com/sairahul1/status/2064277888216555684) — Rahul’s thread on moving from prompting to designing reliable agent loops (highly recommended).
+
+-
+ The Agency Era & Organizational Learning (https://aka.ms/AgencyEra) — Microsoft’s broader framing of how organizations need to evolve alongside agentic tools.
+
+Post Script:
+
+Pieces like this — where I work through what the new tools, cost signals, and research actually mean for how we should be operating — are moving behind the paywall.
+
+I’m keeping the first one free. Future writing in this direction, including more on what it takes to work like a Frontier Professional, will be for paid subscribers when the tier launches.

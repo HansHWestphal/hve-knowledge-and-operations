@@ -1,0 +1,14 @@
+# Local Hermes state and personal attachments
+.hermes/
+
+# Private financial and business records
+financial-statements/
+hve-multica-business-requirements.pdf
+
+# Generated evaluation and course artifacts
+workspace/hermes-llm-eval-harness/__pycache__/
+workspace/hermes-llm-eval-harness/results/
+workspace/hermes-full-course-*/
+
+# Local checkout repositories; each has its own Git history
+workspaces/
