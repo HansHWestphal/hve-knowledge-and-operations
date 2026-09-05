@@ -2,8 +2,8 @@
 
 **Prepared by:** Hermes (Chief of Staff), HVE
 **Date:** 2026-09-05
-**Status:** FINALIZED (requirements + decisions) — awaiting Luna's technical review
-**Requested review:** Luna (CTO / technical architecture) — opinion + improvements before build
+**Status:** FINALIZED (requirements + decisions) — Phase 0 Hans-only pilot required before team rollout
+**Technical review:** Luna (CTO / technical architecture) — reviewed and additions approved by Hans before build
 **Approved by:** Hans Westphal (CEO) — all decisions below confirmed in DM, 2026-09-04/05
 **Purpose:** Single record of the complete discussion and key decisions on how the HVE
 team (Alan, Brian, Wolfgang) will receive, execute, and deliver tasks. Nothing in this
@@ -36,6 +36,9 @@ requirements record for the new tasking system.
 5. **Hermes is the project manager** for the three humans; Kanban/agent-board
    tooling is the wrong layer for human-owned work (it routes to Hermes
    profiles, not people).
+6. **The Hans-only UX must be proven first** — no team task is assigned and no
+   group rollout begins until Hans completes and approves the private
+   end-to-end workflow in his personal chat with Hermes.
 
 ## 3. Decided items
 
@@ -115,9 +118,59 @@ requirements record for the new tasking system.
 - Hermes cannot enumerate its own groups from the DM; it records the chat ID
   from arriving messages. Group ID above is confirmed via channel directory.
 
+### D7 — Phase 0 Hans-only UX pilot (mandatory before AL-01)
+
+- Before creating AL-01 or communicating any task to the team, Hermes must
+  complete a private end-to-end pilot with Hans in the personal WhatsApp DM.
+- The pilot must exercise the complete control loop:
+  1. Hans proposes a task.
+  2. Hermes normalizes the task into owner, deliverable, pillar, due date,
+     acceptance criteria, and risks.
+  3. Hermes previews the GitHub card and proposed team message.
+  4. Hans approves or corrects the proposal.
+  5. Hermes creates the card only after explicit approval.
+  6. Hermes handles simulated `starting`, `blocked`, artifact delivery, and
+     `done` updates.
+  7. Hermes moves the card to `In Progress` and then `Awaiting Validation`.
+  8. Hermes requests Hans's validation.
+  9. Hans approves or rejects; rejection returns the card to an open state
+     with the reason recorded.
+  10. Hermes produces a clear status and ownership digest.
+- The pilot must verify that the UX is understandable, that approval
+  boundaries are explicit, and that the GitHub audit trail matches the
+  conversation.
+- No group broadcast, team assignment, or AL-01 card is permitted until Hans
+  explicitly approves the Phase 0 result.
+- The private DM pilot validates the control-plane UX. A later controlled
+  group test is still required for mentions, membership, routing, and
+  group-specific behavior.
+
+### D8 — Reliability and safety requirements
+
+- Hermes is a workflow adapter, not an autonomous scope-setting project
+  manager. It must not infer a new task, owner, due date, scope change, or
+  approval when the message is ambiguous.
+- Every task receives a stable task ID. Repeated messages, retries, or
+  webhook redelivery must be idempotent and must not create duplicate cards,
+  commits, or status transitions.
+- Before any artifact enters the public `hve-team` repository, Hermes must
+  apply a sensitivity gate and block or escalate financial, health, tax,
+  strategic, credential, or otherwise restricted content.
+- Every task action must preserve an immutable event trail containing the
+  source message, actor, timestamp, task ID, requested transition, result,
+  and any approval or rejection reason.
+- GitHub, WhatsApp, or commit failures must be surfaced with the exact
+  pending action. Hermes must never report a card, artifact, or status change
+  as complete without confirming the underlying operation.
+- The card body remains the authoritative deliverable specification; chat
+  messages provide the interaction layer and event provenance.
+
 ## 4. Full lifecycle (final)
 
 ```
+Phase 0 — Hans personal DM:
+    → run the complete private pilot and receive Hans approval before rollout
+
 Hans DM: assign/confirm task
     → Hermes normalizes, Hans approves
     → card created (Open; Owner/Due/Pillar set by Hermes)
@@ -135,6 +188,20 @@ Hans DM: "done" (or "no — [reason]")
 
 Hermes ongoing: stale-item chasing, weekly "who-owes-what" digest to Hans
 ```
+
+### Phase 0 acceptance gate
+
+The private pilot passes only when all of the following are true:
+
+- Hans can understand the proposed card and team message without leaving the
+  personal chat.
+- No card or group message is created before explicit Hans approval.
+- Status updates, blockers, artifacts, validation, rejection, and retry
+  behavior produce the expected card state and audit trail.
+- Duplicate or repeated messages do not create duplicate GitHub objects.
+- Sensitive test content is blocked from the public repository.
+- Failed GitHub or WhatsApp operations are reported honestly and recoverably.
+- Hans explicitly approves moving to the controlled group test.
 
 ## 5. First task (validated by Hans)
 
@@ -154,16 +221,18 @@ Hermes ongoing: stale-item chasing, weekly "who-owes-what" digest to Hans
 
 ## 7. Open items / next steps
 
-1. **Luna review (this doc):** confirm the Projects-board schema works in
-   org practice; suggest any field/column improvements; flag any GitHub
-   permissions, visibility-flip, or collaboration pitfalls (e.g.,
-   `uploads/` as the artifact channel vs. GitHub Releases/PRs; commit
-   attribution when Hermes commits on a team member's behalf).
-2. After Luna sign-off + Hans's go: create `humanvalueexchange/hve-team`,
-   the Project board, `uploads/` folders, README.
-3. Post the corrected "board is at hve-team" note to the HVE team group
+1. Build the Hans-only Phase 0 pilot in the existing Hermes personal DM
+   workflow, including the preview, approval, state, artifact, validation,
+   idempotency, sensitivity, and failure-handling contracts.
+2. After Hans explicitly approves the Phase 0 result, create
+   `humanvalueexchange/hve-team`, the Project board, `uploads/` folders, and
+   README.
+3. Run a controlled group test for mentions, membership, routing, and
+   artifact handling without assigning AL-01 yet.
+4. Post the corrected "board is at hve-team" note to the HVE team group
    (supersedes the earlier confirmation that referenced the old path).
-4. Create AL-01 (Alan's bio) as the first card and broadcast to the group.
+5. Create AL-01 (Alan's bio) as the first real card and broadcast it to the
+   group only after the private and controlled-group gates pass.
 
 ---
 
@@ -177,3 +246,5 @@ Hermes ongoing: stale-item chasing, weekly "who-owes-what" digest to Hans
 | D4 | Awaiting Validation gate; only Hans closes tasks | Hans | 2026-09-04 |
 | D5 | DM-first approval before any group broadcast | Hans | 2026-09-04 |
 | D6 | HVE team group (`...8627572`-referenced; ID `120363428227646086@g.us`) is the team channel | Hans | 2026-09-05 |
+| D7 | Hans-only private UX pilot must pass before group rollout or AL-01 | Hans | 2026-09-05 |
+| D8 | Idempotency, sensitivity gates, immutable audit trail, and honest failure handling are mandatory | Hans | 2026-09-05 |
