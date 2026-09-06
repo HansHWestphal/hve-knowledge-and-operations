@@ -65,6 +65,27 @@ Hermes is a separate operational system, maintained in the `hermes-v2` repositor
 - **Bitcoin discount policy is undetermined** — do not represent a discount or eligibility rule as active until explicitly approved and recorded.
 - **Brand colors:** Forest green `#228b22` + Gold `#d4af37` (current); black/white/silver rebrand timing remains subject to the current launch plan.
 
+## UAT and Session-Continuity Discipline
+
+- Treat the current live Hermes session, the prior-session handoff, and
+  session-store telemetry as separate evidence sources. Do not use a stale or
+  incomplete telemetry view to contradict a direct live-session observation.
+- Before declaring a UAT ready or blocked, reconcile the exact runtime, profile,
+  repository, database, channel, and exposed MCP tool surface. Record which
+  evidence is current and which is historical.
+- Never describe an internal helper as an exposed tool. Distinguish clearly
+  between implementation capability, MCP tool registration, configuration
+  `tool_filter`, runtime activation, and pushed code.
+- For approval-gated workflows, never claim completion from a plausible local
+  state. Verify the external issue, Project item, artifact commit, proof comment,
+  and final validation independently, with exact identifiers and URLs.
+- Do not restart, resume, delete, or validate a live task based on inference.
+  Preserve the user's stop instruction and obtain explicit approval for
+  destructive cleanup or final validation.
+- When a session handoff says the system is ready, read it before re-running
+  discovery. Do not repeatedly re-litigate already-resolved gates or make the
+  user restate current context.
+
 ## Company Context
 
 - **Legal entity:** HVEGlobal LTD (`info@hveglobal.ca`)
