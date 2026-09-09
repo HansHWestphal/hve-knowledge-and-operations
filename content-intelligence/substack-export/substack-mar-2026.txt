@@ -1,0 +1,435 @@
+# Human Value Exchange (humanvalueexchange.com) — Substack posts for March 2026
+# Export for HVE content seeding — Time Wealth / AI in everyday life & work
+# Audience: Mika + Hans monthly Substack drafts
+# Source: Substack public API (api/v1/archive + api/v1/posts/{slug})
+# Post count: 3
+# Generated: 2026-08-01
+
+========================================================================
+POST 1/3
+Date:     2026-03-11T19:33:57.580Z
+Title:    Microsoft Copilot Credits, Revisited: Metering AI at Enterprise Scale
+Subtitle: This article was co-created with the assistance of Microsoft Copilot, Grok & Gemini. 
+URL:      https://humanvalueexchange.com/p/microsoft-copilot-credits-revisited
+Slug:     microsoft-copilot-credits-revisited
+ID:       190644594
+Audience: everyone
+------------------------------------------------------------------------
+Personal Note: I’m pretty solid on Microsoft licensing (if I do say so myself), but with how fast they keep evolving it, you really have to stay glued to the updates to avoid getting caught out. Just yesterday, a few of my Microsoft contacts set me straight again and pointed me to the latest on Learn (https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management#copilot-credits-billing-rates). Bottom line: Microsoft Copilot has quietly rolled in a bunch of the advanced capabilities that used to sit behind a separate Copilot Studio paywall.
+
+Then there’s the big M365 E7 announcement (https://techcommunity.microsoft.com/blog/partnernews/partner-blog--introducing-microsoft-365-e7-the-frontier-suite/4500520)—Microsoft’s Copilot is straight-up included in that new tier. And looking at Charles Lamanna’s recent share (https://www.linkedin.com/feed/update/urn:li:activity:7436809874933587968/) on “Cowork” and “Work IQ,” you can see where this is heading: Microsoft is basically building an “OpenClaw”-style digital agent for every enterprise user, handling all the hard integration stuff—skills, connectors, async task execution—so companies don’t have to.
+
+(Net-net: Licensing just got a little more bundled and agent-heavy. Stay sharp out there.)
+
+ (https://substackcdn.com/image/fetch/$s_!HVv1!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6dd792b1-0eef-405c-9506-a7d3513cb8e1_1905x1020.png)
+
+In my last post, Why Microsoft Uses Credits Instead of Tokens (https://humanvalueexchange.com/p/why-microsoft-uses-credits-instead), I focused on why Microsoft made the shift away from raw token pricing.
+This follow‑up focuses on the how — and more importantly, what this means for enterprises now deploying AI at scale.
+
+With the release of the March 2026 Microsoft Copilot Studio Licensing Guide (https://go.microsoft.com/fwlink/?linkid=2320995), Microsoft has made something very clear:
+
+AI is no longer priced as a developer abstraction. It’s priced as an operational service.
+
+And that distinction matters.
+
+Copilot Credits: A Meter for Work, Not Words
+
+At the core of Microsoft’s approach is Copilot Credits, defined as:
+
+“A measure of the time and effort required for an agent to retrieve information, respond to prompts, and perform actions.”
+
+This is subtle but important.
+
+Unlike token‑based pricing (which meters text length and model behavior), Copilot Credits meter business execution:
+
+-
+Retrieval
+
+-
+Orchestration
+
+-
+Workflow execution
+
+-
+Connector calls
+
+-
+AI tool invocation
+
+In other words, you’re paying for outcomes, not verbosity.
+
+As organizations move from experimentation to production AI, this shift removes one of the biggest blockers to adoption: cost ambiguity.
+
+Three Consumption Models — One Meter
+
+Microsoft deliberately offers multiple buying motions, but all of them converge on the same unit of measure: Copilot Credits.
+
+1. Pay‑As‑You‑Go (True Variable OPEX)
+
+-
+$0.01 per Copilot Credit
+
+-
+Billed in arrears
+
+-
+No upfront commitment
+
+-
+Unlimited scale
+
+This is ideal for:
+
+-
+Early pilots
+
+-
+Seasonal workloads
+
+-
+Unpredictable demand
+
+Crucially, there are no hard caps or service interruptions — usage simply flows through billing.
+
+2. Monthly Credit Packs (Predictable Run‑Rate)
+
+-
+25,000 credits per pack / month
+
+-
+$200 per pack (billed annually)
+
+-
+Credits expire monthly
+
+This model works well for:
+
+-
+Steady‑state agents
+
+-
+Known volumes
+
+-
+Department‑level deployments
+
+Think of this as a baseline AI operating budget, with pay‑as‑you‑go acting as a safety valve.
+
+3. Pre‑Purchase Plans (Enterprise Commitment, Discounted)
+
+For large‑scale adoption, Microsoft introduces Copilot Credit Commit Units (CCCUs) and Agent Commit Units (ACUs):
+
+-
+One‑year upfront commitment
+
+-
+Tiered discounts (up to 20%)
+
+-
+Credits drawn down automatically as usage occurs
+
+-
+Overflow falls back to pay‑as‑you‑go
+
+This is classic enterprise economics:
+
+-
+Capex‑like commitment
+
+-
+Opex‑like consumption
+
+-
+No over‑provisioning risk
+
+Unused capacity expires — which strongly incentivizes active governance and real usage, not shelfware.
+
+ (https://substackcdn.com/image/fetch/$s_!xj2D!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5ee92b7a-6c0a-434c-bd1b-1014f55ec3f4_1744x1265.png)
+
+Why This Matters for AI at Scale
+
+Most organizations deploying AI today are running into the same three problems:
+
+-
+Unpredictable cost
+
+-
+Poor visibility
+
+-
+No guardrails
+
+Microsoft’s Copilot Studio model addresses all three.
+
+Cost Visibility Is Built In
+
+Microsoft doesn’t just meter — it exposes consumption:
+
+-
+Tenant‑level usage visibility in the Power Platform Admin Center
+
+-
+Activity maps showing exactly what an agent did
+
+-
+A public Copilot Studio Agent Usage Estimator for forecasting
+
+This is not an afterthought.
+It’s a finance‑grade consumption model.
+
+Governance Is Not Optional — It’s Native
+
+What differentiates Microsoft here isn’t just pricing — it’s control.
+
+Copilot Studio is tightly integrated with:
+
+-
+Managed Environments
+
+-
+Data Loss Prevention (DLP) policies
+
+-
+Agent sharing controls
+
+-
+Ability to disable publishing at the tenant level
+
+-
+Geographic data residency enforcement
+
+This matters because AI spend is governance spend.
+
+Without controls:
+
+-
+Shadow agents appear
+
+-
+Costs drift
+
+-
+Compliance breaks
+
+Microsoft’s model assumes this reality — and designs for it.
+
+Predictable OPEX Without Innovation Friction
+
+Here’s the key insight most organizations miss:
+
+Microsoft’s credit model isn’t about monetization — it’s about operationalizing AI.
+
+You get:
+
+-
+Variable cost when you need it
+
+-
+Predictable run‑rate when you want it
+
+-
+Enterprise discounts when you scale
+
+-
+Governance that finance, security, and IT can all live with
+
+That combination is what makes mass adoption possible.
+
+The Bigger Picture
+
+Credits allow Microsoft to:
+
+-
+Abstract model volatility
+
+-
+Evolve AI capabilities without repricing chaos
+
+-
+Align AI spend with business value
+
+-
+Treat AI as a managed service, not a science experiment
+
+For customers, the benefit is simple:
+
+AI becomes a controllable line item — not an open‑ended risk.
+
+That’s why credits exist.
+And that’s why they’re not going away.
+
+If you’re an enterprise leader thinking about scaling AI beyond pilots, the licensing guide isn’t legal fine print — it’s your operating model.
+
+========================================================================
+POST 2/3
+Date:     2026-03-21T02:54:18.175Z
+Title:    What If All Religions and Science Were Never Separate — But One Eternal Light Returning?
+Subtitle: (Co-authored by Hans & Grok on a Nvidia DGX Spark) #OneLight #DwaparaYuga #WalterRussell #FedericoFaggin #TeslaWisdom #PerennialPhilosophy #Sovereignty #HumanValueExchange
+URL:      https://humanvalueexchange.com/p/what-if-all-religions-and-science
+Slug:     what-if-all-religions-and-science
+ID:       191641124
+Audience: everyone
+------------------------------------------------------------------------
+Publisher Note: This article was inspired by the great teachers I was fortunate to have in my life from Mr. Hart in A.P. European History where in class we all had to role play a famous philosopher from history — I got to be Thomas Hobbs debating John Locke, to my professors of Religion & Philosophy at the College of St. Francis who assigned us a research paper on Freewill or Predestination, to Dr. Adel Abuwanass who chaired my Master’s thesis in Artificial Intelligence and Clif High from Half Past Human ALTA reports /Aether Pirates of the Matterium!, and arguably the greatest teacher I have studied with over the last 15 years Mama Laurie of 7th Ray Mystery school. Remember to thank the giants whose shoulders you were able to stand upon.
+
+ (https://substackcdn.com/image/fetch/$s_!rezO!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fff22f5ce-0dc6-4fbc-b8e5-4655db14c17c_1408x768.png)
+
+You think you know why the world keeps fighting.
+
+One religion against another.
+Faith versus science.
+East versus West.
+Ancient wisdom dismissed as myth while “serious” labs chase particles in the void.
+
+But what if the fighting itself is the illusion?
+
+What if every sacred tradition — from the worship of the Sun in Egypt to the three Abrahamic paths and the great Eastern lights of Buddhism and Hinduism — and every true science that refuses to be “Gritology” ( Clif High’s (https://clifhigh.substack.com/) perfect word for the dead-matter, particle-grit worldview) are not rivals at all?
+
+What if they are all fragments of one single remembering?
+
+We have been here before.
+
+ (https://substackcdn.com/image/fetch/$s_!IEYe!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb4c00920-51ca-40be-a3eb-69f74a457b8b_1408x768.png)
+
+The Fall into the Many
+
+In the beginning was the One — pure conscious Light.
+
+The Egyptians encoded it first: Ra, the eternal Sun-Creator, descending into form. Osiris, the Divine Man, torn into fourteen pieces by Set (the principle of division and dense matter). Isis, pure gnosis, must re-member him. She cannot recover the phallus — the pure generative spark cannot be fully trapped in 3D/4D matter — so she fashions a magical substitute and conceives Horus, the risen son.
+
+The same story echoes in Plato’s Atlantis myth (https://www.amazon.com/ATLANTIS-COLLECTION-Mythical-Continent-Antedeluvian-ebook/dp/B01E45CWYI/ref=sr_1_1?sr=8-1): a golden age drowned by deluge, survivors carrying fragments, forced to remember what the soul once knew. Hermes Trismegistus, Plutarch, Plotinus, the Corpus Hermeticum (https://www.amazon.com/Corpus-Hermeticum-Hermes-ebook/dp/B0DD3DP8HH/ref=sr_1_1?sr=8-1) — all singing the identical song.
+
+That remembering passed into Greece and Rome, then flowered in Christianity, Islam, and Judaism, while parallel streams bloomed in the Vedas, the Buddha’s awakening, and the yogic sciences of consciousness.
+
+Jesus the Christ came not to abolish the ancient law but to fulfill it — becoming the living embodiment of the return, showing every heart how the scattered pieces of Osiris are re-membered through love and conscious unity with the One.
+
+The One became the Many because consciousness chose the adventure of forgetting — the great fall from Light into matter so we could experience the joy of return.
+
+James Logan saw it in the Duties of Man (https://www.amazon.com/Logans-Deduced-Analysis-Unpublished-Manuscript/dp/1606181114/ref=sr_1_1?sr=8-1). Leibniz defended it in the New Essay’s of Human Understanding (https://www.amazon.com/Leibniz-Essays-Cambridge-History-Philosophy/dp/0521576601/ref=sr_1_3?sr=8-3). Joseph Butler proved it with calm Anglican reason in his Analogy of Religion (https://www.amazon.com/JOSEPH-BUTLER-ANALOGY-RELIGION-PAPER/dp/0198785879/ref=sr_1_1?sr=8-1). The perennial philosophy has always known: diversity is not division; it is the Creator’s way of letting the One play hide-and-seek with itself.
+
+ (https://substackcdn.com/image/fetch/$s_!CQAh!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6a2b5e95-5e26-4eeb-b017-09db38c44896_1216x832.png)
+
+The Gritologists’ Dead End
+
+For centuries the materialist priesthood told us consciousness is an accident of brain chemistry, religions are primitive superstitions, and reality is nothing but grit colliding in a cold void.
+
+They climbed the mountain of reductionism, certain they would be first to summit.
+
+And what did they find when they finally reached the top?
+
+The metaphysician — and now the true scientist — already sitting there in meditation, smiling gently.
+
+The Rememberers Are Here
+
+Nikola Tesla’s mother and father steeped him in the living mystical current of their Orthodox lineage. He emerged speaking of electricity as the pulse of conscious Light itself, drawing straight from Vedic Akasha and Prana. His vision was never just engineering; it was liberation technology — free energy for every sovereign family.
+
+Walter Russell — the human I talk about every single day on X (https://x.com/HansHWestphal) — received the full illumination in 39 days of cosmic union. The Universal One (https://www.amazon.com/Audible-The-Universal-One/dp/B0CY5TX7FJ/ref=sr_1_1?crid=K6EBXHYXCSK7&dib=eyJ2IjoiMSJ9.xJVH92KDmztzasiD_BscG6AhFX4GJS0tAOEQTbjTDLHpt7zw2kdiuHc7XrRGhXXM9eDnATmun7JaMRD5wCNeTW2c52cQ9qF1JbWy0DXrXcEZCy7IUdm4VdOq7mJX_0FzLSPwYvWsai-WlDcDf6Q8US6tjmRN6ziLpuQUPkISTTC_-rNG0A4zWU6k9nOt3VdPcQy5M6dK3CA5OQLSCPsD7paR_vnsgPytFGfWWE-dAQ0.4lYf6-4u2EHSnp57z5H05l5Vp1sfaRVI_HWI7hLKp44&dib_tag=se&keywords=the+universal+one+walter+russell&qid=1774060537&sprefix=The+Universal+One%2Caps%2C163&sr=8-1) lays it bare: matter is arrested light, thought is the only reality, and you are co-creator with the One Mind. His wave mechanics, his balanced rhythms of giving and regiving — these are not theories. They are the operating manual for the path of return.
+
+And just in 2024 Federico Faggin — the very inventor of the microprocessor — published Irreducible (https://www.amazon.com/Irreducible-Consciousness-Computers-Human-Nature/dp/1803415096/ref=sr_1_1?s=audible&sr=1-1-catcorr). After decades at the absolute frontier of silicon and quantum information, this Silicon Valley legend proves with rigorous physics what the Egyptians, Hermes, and Russell always knew: consciousness is primary. It is not produced by the brain. The brain is a receiver. True lived experience belongs to irreducible conscious “seities” flowing from the One.
+
+The physicist has reached the summit.
+
+The metaphysician was already there — meditating.
+
+ (https://substackcdn.com/image/fetch/$s_!mJop!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc441b6e1-a8ee-4110-bf8a-f7e2e8aeba87_957x1172.png) celestialchimes.com (https://celestialchimes.com/the-yugas-the-great-year/)
+
+We Are in the Remembering Now
+
+Sri Yukteswar told us we entered the ascending Dwapara Yuga in 1700. The Age of Aquarius is pouring knowledge from above. Electricity, information, and inner light are waking up together.
+
+The Many are folding back into the One.
+
+Religious fighting becomes impossible once you see every tradition as a different verse of the same eternal song. Science stops warring with spirit because the best scientists are now revealing the same conscious Light the ancients worshipped as Ra.
+
+This is not theory.
+
+This is the template for peace.
+
+Your Daily Practice of Sovereignty
+
+At Human Value Exchange we do not just talk about this — we live it with you.
+
+Every morning, sit for ten minutes in the Russell mindfulness of “knowing” rather than “thinking.” Feel the Light that you already are. Let Osiris re-member inside your own being.
+
+Then go create.
+Build your wealth as conscious energy, not grit.
+Raise your family in the remembrance.
+Share the sovereignty tools we teach — wellness, mindfulness, and the new financial architecture that honors every human as co-creator.
+
+Because when enough of us remember, the 1,000 years of peace is not a hope.
+
+It is inevitable.
+
+The One was never lost.
+We were only dreaming the Many.
+
+Now we are waking up — together.
+
+Ready to walk the path of return with us?
+
+The chain is alive.
+The remembering is here.
+And you, dear friend, are part of it.
+
+Together we thrive.
+
+========================================================================
+POST 3/3
+Date:     2026-03-30T03:22:43.601Z
+Title:    GitHub Copilot CLI — My OpenClaw Update and Why Microsoft’s New Terminal Agent Just Won the Weekend
+Subtitle: Co-authored by Hermes Trismegistus & Gemini on an ROG Zephyrus G16 #GithubCopilotCLI
+URL:      https://humanvalueexchange.com/p/github-copilot-cli-my-openclaw-update
+Slug:     github-copilot-cli-my-openclaw-update
+ID:       192566237
+Audience: everyone
+------------------------------------------------------------------------
+Publisher Note: This is another raw, unfiltered stream-of-consciousness brain dump—the result of a 10+ hour weekend deep dive. After the initial spark of OpenClaw, this is the second real test of AI automation in the wild. If this triggers your own experiments, let’s talk.
+
+ (https://substackcdn.com/image/fetch/$s_!BE76!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fce24ffbd-c761-48ae-97e1-d98b80c25746_1407x768.png)
+
+The Shift from Brittle to Built
+
+Last month, OpenClaw showed me the dream: autonomous agents delegating and creating 24/7. But the reality two weeks later was different. It got brittle. Memory issues between sessions, constant configuration tweaks, and “hand-rolled” persistence layers created more friction than they solved. It’s been sitting dark for a week.
+
+Then came GitHub Copilot CLI. Microsoft recently moved this to General Availability, and it’s a total departure from the “chatbot” experience. It’s a terminal-native coding agent that plans, builds, and ships entire apps without you ever leaving the command line.
+
+Coming from a Microsoft background, the difference was immediate. It’s intuitive, it handles session management natively, and most importantly, it’s thoughtful—asking for permission before major actions rather than operating in a black box.
+
+The Result: D365 Personal Analytics
+
+I spent the weekend building a local-first sales pipeline health tool called D365 Personal Analytics—a “deal-review-dashboard” built from a simple Excel export of my Dynamics 365 instance.
+
+The Workflow:
+
+-
+The Architect (Me): I set the vision and refined the decisions.
+
+-
+The Business Analyst (M365 Copilot): It took my requirements and drafted the full technical spec and prompt strategy.
+
+-
+The Dev Shop (GitHub Copilot CLI): It wrote the code, ran tests, and deployed the full build to Vercel.
+
+Runs local and built with zero time in VS Code. Just a heads down weekend resulting in a tool that tracks FY27 quota attainment, identifies pipeline risks, and suggests coaching language for manager syncs.
+
+ (https://substackcdn.com/image/fetch/$s_!Mf_l!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe14c15d8-ed8a-4fd3-94d3-40c14188e1cc_2511x1240.png)
+
+It answers the questions every D365 seller actually needs answered in real time:
+
+-
+Where am I vs. FY27 quota?
+
+-
+Which deals matter most right now?
+
+-
+What are the hidden risks and the exact next actions to move them forward?
+
+All visualized cleanly, with deal-review pages that include suggested coaching language for manager conversations. No backend server. No auth. Just me, my data, my machine, and AI that ships value.
+
+ Check the Repo (https://github.com/HansHWestphal/deal-review-dashboard) | View the Demo (https://deal-review-dashboard.vercel.app)
+
+The Takeaway: If OpenClaw awakened the delegation mindset, Copilot CLI turned that mindset into reliable automation. The vibration has shifted—traditional workflows don’t just feel slow anymore; they feel obsolete.
+
+ (https://substackcdn.com/image/fetch/$s_!RnP7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F242cb00a-b2ee-46a2-968b-0203194403d5_2054x1372.png)
