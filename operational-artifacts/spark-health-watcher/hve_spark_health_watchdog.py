@@ -255,8 +255,38 @@ def check_host(checks: dict[str, Any], findings: list[dict[str, str]]) -> None:
         add_check(checks, findings, "host.inodes", "warn", inode["stderr"] or "df inode probe failed")
 
     failed = run_cmd(["systemctl", "--user", "--failed", "--no-legend", "--no-pager"], timeout=8)
-    failed_units = [line.split()[0] for line in failed["stdout"].splitlines() if line.strip()] if failed["ok"] else []
-    add_check(checks, findings, "host.failed_user_services", "warn" if failed_units else "pass", ", ".join(failed_units[:8]) if failed_units else "none")
+    failed_units = (
+        [
+            match.group(1)
+            for line in failed["stdout"].splitlines()
+            if line.strip()
+            for match in [re.search(r"([A-Za-z0-9_.@:-]+\.service)\b", line)]
+            if match
+        ]
+        if failed["ok"]
+        else []
+    )
+    advisory_units = {"update-notifier-crash.service"}
+    advisory_failed = [unit for unit in failed_units if unit in advisory_units]
+    actionable_failed = [unit for unit in failed_units if unit not in advisory_units]
+    add_check(
+        checks,
+        findings,
+        "host.failed_user_services",
+        "warn" if actionable_failed else "pass",
+        ", ".join(actionable_failed[:8]) if actionable_failed else "none",
+    )
+    if advisory_failed:
+        add_check(
+            checks,
+            findings,
+            "host.failed_user_service_advisories",
+            "warn",
+            ", ".join(advisory_failed[:8]) + " (advisory; no required workload impact)",
+            event_type="host_advisory",
+            impact="none",
+            fingerprint_key="host.failed_user_service:update-notifier-crash",
+        )
 
 
 def url_json(path: str, timeout: int = 8) -> tuple[dict[str, Any] | None, str | None]:
@@ -567,6 +597,8 @@ def transition_alerts(data: dict[str, Any], state_path: Path, evidence_dir: Path
         if state_error:
             messages.append(f"ALERT state: {state_error}")
         for item in data["findings"]:
+            if item.get("impact") == "none":
+                continue
             fp = fingerprint(item)
             old = previous.get(fp)
             record = {
@@ -596,6 +628,8 @@ def transition_alerts(data: dict[str, Any], state_path: Path, evidence_dir: Path
                 messages.append(f"{transition} {label} {item['id']}: {item['detail']}")
         for fp, old in previous.items():
             if fp not in current and isinstance(old, dict):
+                if old.get("impact") == "none" or old.get("id") == "host.failed_user_service_advisories":
+                    continue
                 label = "ADVISORY" if old.get("impact") == "none" else str(old.get("severity", "warn")).upper()
                 messages.append(f"RECOVERY {label} {old.get('id', fp)}")
         state = {
