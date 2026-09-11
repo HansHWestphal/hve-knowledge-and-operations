@@ -4,11 +4,12 @@ This is the GitHub landing page and index for approved HVE operating
 procedures. Use this directory as the canonical, easy-to-find home for SOPs
 that govern repeatable work across HVE and the DGX Spark.
 
-## Approved SOPs
+## SOPs
 
 | SOP | Owner | Effective | Status |
 |---|---|---:|---|
-| [HVE Spark Coding Task SOP v1.0](./2026-09-11-hve-spark-coding-task-sop-v1.0.md) | Luna, CTO | 2026-09-11 | Adopted |
+| [HVE Spark Coding Task SOP v1.1](./2026-09-11-hve-spark-coding-task-sop-v1.1.md) | Luna, CTO | 2026-09-11 | Adopted |
+| [HVE Spark Coding Task SOP v1.0](./2026-09-11-hve-spark-coding-task-sop-v1.0.md) | Luna, CTO | 2026-09-11 | Superseded |
 
 ## How to add a future SOP
 
@@ -25,6 +26,10 @@ that govern repeatable work across HVE and the DGX Spark.
 
 Drafts remain clearly marked as proposed and must not be presented as active
 policy. GitHub is the system of record for adopted SOPs.
+
+Version 1.1 adds a mandatory safe-pause and resume protocol for live tasks,
+dirty user changes, uncertain repository ownership, and unclear rollback
+authority. It is the active version.
 
 ## Related operating records
 
