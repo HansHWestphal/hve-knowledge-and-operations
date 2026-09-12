@@ -37,3 +37,14 @@ Historical planning notes and agent communications remain in
 [`agent-communications/`](../agent-communications/). The canonical current
 SOP is the document linked above; the communications directory contains the
 historical publication context and decision trail.
+
+## Runbooks
+
+| Runbook | Owner | Status |
+|---|---|---|
+| [HVE Spark Hermes User-Session Supervision Runbook v1.0](./2026-09-12-hve-spark-hermes-user-session-supervision-runbook-v1.0.md) | Luna, CTO | Approved for operational use |
+
+Runbooks document concrete operational procedures for the Spark Hermes
+infrastructure. Use the same dated, versioned Markdown convention as SOPs,
+preserve prior versions, and publish approved changes to GitHub as the system
+of record.
