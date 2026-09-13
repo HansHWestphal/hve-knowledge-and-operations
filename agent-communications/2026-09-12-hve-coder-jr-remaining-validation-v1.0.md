@@ -49,13 +49,26 @@ Hermes-Coder queue or database.
 | Shell syntax checks | passed |
 | Temporary cancellation and child cleanup | passed |
 | Temporary stale claimed/executing recovery | passed; requeued and idempotent |
-| Structured tool-call request | **open** |
+| Structured tool-call request | **blocked**; exact model/runtime returned text markup, not native `message.tool_calls` |
 
 The structured request was made against the exact alias with a declared
-function tool and bounded output. The model returned a text `<tools>`/JSON
-block rather than a valid OpenAI `tool_calls` object, and the bounded output
-was truncated. No tool was executed. The profile contract therefore keeps
-structured tool-call validation open.
+function tool and bounded output. The first request used an OpenAI object
+`tool_choice`, which this llama.cpp build rejected as requiring a string and
+then handled with its default. The supported string forms were also tested:
+`auto` returned `<function ... />` text, while `required` repeated the markup
+until `finish_reason: "length"`. `--no-jinja` rejected tool requests because
+the tools parameter requires `--jinja`.
+
+The GGUF's embedded Qwen template explicitly teaches XML/text tool markup, and
+`/props` capability flags do not change the observed response shape. No
+permissive text-to-tool adapter was added because the Jr repository has no
+provider execution contract to extend without duplicating authority controls.
+A provider-neutral native-response validator was added with focused rejection
+coverage for text-only output, malformed JSON, invalid names, missing or extra
+arguments, duplicates, truncation, and ambiguous content. It only normalizes
+a single already-native call and never authorizes or executes it. No tool was
+executed. Phase E remains blocked pending a model/runtime decision; production
+activation remains separately approval-gated.
 
 ## Explicit deferrals and boundaries
 
