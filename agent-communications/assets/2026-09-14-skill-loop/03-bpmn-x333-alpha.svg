@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-label="x333 alpha">
+  <rect width="1400" height="820" fill="#F7F5F0"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2A3648"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="88" fill="#162A44"/>
+  <text x="700" y="36" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="26" font-weight="700" fill="#FFFFFF">Alpha Use Case — x333 Skill Evolution</text>
+  <text x="700" y="64" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" fill="#D6CCB0">Instance of the generic loop · measurable contract · ownership boundary is the original incident</text>
+  <rect x="40" y="110" width="520" height="90" rx="12" fill="#E8F6EC" stroke="#286C4C" stroke-width="2"/>
+  <text x="300" y="147" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#1C2026">SIGNAL</text>
+  <text x="300" y="168" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#1C2026">19 code calls · ~7 min resume · unauthorized skill_manage</text>
+  <line x1="80" y1="200" x2="80" y2="220" stroke="#2A3648" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="40" y="220" width="520" height="90" rx="12" fill="#ECF5FC" stroke="#244E80" stroke-width="2"/>
+  <text x="300" y="257" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#1C2026">HYPOTHESIS</text>
+  <text x="300" y="278" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#1C2026">Cut balancing work; keep the 333-char contract</text>
+  <line x1="80" y1="310" x2="80" y2="330" stroke="#2A3648" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="40" y="330" width="520" height="90" rx="12" fill="#E8F4F2" stroke="#206070" stroke-width="2"/>
+  <text x="300" y="367" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#1C2026">CANDIDATE</text>
+  <text x="300" y="388" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#1C2026">Jr implements bounded change in an isolated version</text>
+  <line x1="80" y1="420" x2="80" y2="440" stroke="#2A3648" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="40" y="440" width="520" height="90" rx="12" fill="#FFF6E6" stroke="#96601C" stroke-width="2"/>
+  <text x="300" y="477" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#1C2026">LIVE MEASURE</text>
+  <text x="300" y="498" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#1C2026">Ordinary next x333 uses only. No duplicate baseline.</text>
+  <line x1="80" y1="530" x2="80" y2="550" stroke="#2A3648" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="40" y="550" width="520" height="90" rx="12" fill="#E8F6EC" stroke="#286C4C" stroke-width="2"/>
+  <text x="300" y="587" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#1C2026">PROMOTE IF</text>
+  <text x="300" y="608" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#1C2026">Problem improves; quality and ownership hold</text>
+  <line x1="80" y1="640" x2="80" y2="660" stroke="#2A3648" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="40" y="660" width="520" height="90" rx="12" fill="#FFEEEC" stroke="#943030" stroke-width="2"/>
+  <text x="300" y="697" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#1C2026">ROLLBACK IF</text>
+  <text x="300" y="718" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#1C2026">Bad count · attribution · mutation · latency · pub state</text>
+  <rect x="590" y="110" width="770" height="640" rx="12" fill="#fff" stroke="#2A3648" stroke-width="2"/>
+  <rect x="590" y="110" width="770" height="48" fill="#162A44"/>
+  <text x="975" y="140" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">Non-negotiable x333 contract</text>
+  <text x="620" y="200" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1C2026">1. Exact 333-character output contract</text>
+  <text x="620" y="250" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1C2026">2. Quote fidelity and attribution preserved</text>
+  <text x="620" y="300" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1C2026">3. Passage-grounded insight only</text>
+  <text x="620" y="350" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1C2026">4. No browsing</text>
+  <text x="620" y="400" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1C2026">5. No skill mutation by the running model</text>
+  <text x="620" y="450" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1C2026">6. Unpublished handoff state remains unpublished</text>
+  <text x="620" y="500" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1C2026">7. User-owned skill cannot be curator-patched</text>
+  <text x="620" y="550" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1C2026">8. Draft / validated / handed-off / approved / published stay distinct</text>
+  <text x="620" y="600" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1C2026">9. One ordinary user result — never parallel baseline + candidate</text>
+  <text x="620" y="650" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1C2026">10. Self-evaluation after every promoted change</text>
+  <text x="700" y="790" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#4E5660">Issue #30 origin: unauthorized skill_manage against a user-owned skill. Not runtime authorization.</text>
+</svg>
