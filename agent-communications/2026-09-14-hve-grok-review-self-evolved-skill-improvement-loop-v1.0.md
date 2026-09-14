@@ -164,6 +164,26 @@ The source process is preserved below so this review can be read without leaving
 
 [agent-communications/2026-09-14-hve-self-evolved-skill-improvement-loop-v1.0.md](./2026-09-14-hve-self-evolved-skill-improvement-loop-v1.0.md)
 
+### 6.0 BPMN graphics
+
+Graphics live beside this comm at [`assets/2026-09-14-skill-loop/`](./assets/2026-09-14-skill-loop/). They follow BPMN 2.0 pool / lane / XOR / message-flow reading.
+
+**Level 0 collaboration.** Human stays off the sequence flow. Every red box is current skill unchanged.
+
+![Level 0 BPMN collaboration — HVE Agent Fleet and Human Owner](./assets/2026-09-14-skill-loop/01-bpmn-level0-collaboration.svg)
+
+**Happy path.** Eight activities. Human is not on this picture.
+
+![Happy path — autonomous low-risk skill evolution](./assets/2026-09-14-skill-loop/04-bpmn-happy-path.svg)
+
+**Level 1 expanded.** Same process with Jr build steps and the revision loop visible.
+
+![Level 1 expanded process](./assets/2026-09-14-skill-loop/02-bpmn-level1-expanded.svg)
+
+**x333 alpha overlay.** Instance of the generic loop plus the contract every candidate must survive.
+
+![x333 alpha use case](./assets/2026-09-14-skill-loop/03-bpmn-x333-alpha.svg)
+
 ### 6.1 Purpose (from v1.0)
 
 Define the ideal governed lifecycle for a skill improvement initiated by an agent owner and implemented by hve-coder-jr. The process uses ordinary production use as the rolling baseline. It does not require duplicate benchmark generation or parallel baseline and candidate outputs.
@@ -172,195 +192,11 @@ Routine low-risk improvements may proceed under standing autonomy policy. Change
 
 ### 6.2 Canonical business process flow (v1.0 Mermaid)
 
-```mermaid
-flowchart TD
-    A([Normal skill use]) --> B[Capture rolling operational evidence]
+The canonical flow remains in the source process document and is unchanged. See [2026-09-14-hve-self-evolved-skill-improvement-loop-v1.0.md](./2026-09-14-hve-self-evolved-skill-improvement-loop-v1.0.md).
 
-    subgraph COS["HVE-COS - Skill Owner / Improvement Orchestrator"]
-        B --> C{Repeated improvement signal?}
-        C -- No --> A
-        C -- Yes --> D[Create improvement hypothesis]
-        D --> E[Define what enhanced means]
-        E --> F{Within standing autonomy policy?}
-        F -- No --> X[Escalate for human decision]
-        F -- Yes --> G[Create governed enhancement request]
-    end
+### 6.3 Happy path, collaboration view, RACI, x333 case, and invariants
 
-    subgraph CONTRACT["Governance and Control Plane"]
-        G --> H[Validate skill identity and ownership]
-        H --> I[Load skill contract and safety boundaries]
-        I --> J[Attach rolling evidence, target metric, scope, timeout, and rollback requirements]
-        J --> K{Request valid and bounded?}
-        K -- No --> R1[Reject with reason and audit record]
-        K -- Yes --> L[Route through COS to Jr governed adapter]
-    end
-
-    subgraph JR["hve-coder-jr - Specialist Implementer"]
-        L --> M[Claim bounded enhancement job]
-        M --> N[Create isolated candidate version]
-        N --> O[Implement smallest reversible change]
-        O --> P[Add or update candidate instrumentation]
-        P --> Q[Run deterministic contract and safety checks]
-        Q --> S{Candidate checks pass?}
-        S -- No --> R2[Reject candidate, preserve evidence, release lease]
-        S -- Yes --> T[Return candidate, diff, metrics, risks, and rollback pointer]
-    end
-
-    T --> U[COS reviews candidate evidence]
-    U --> V{Addresses observed problem without regression?}
-    V -- No --> R3[Request bounded revision or abandon candidate]
-    R3 --> N
-    V -- Yes --> W[Activate candidate under controlled version transition]
-
-    subgraph LIVE["Controlled Live Operation"]
-        W --> Y[Serve next ordinary skill request once]
-        Y --> Z[Record output, validation, latency, tool use, user correction, and outcome]
-        Z --> AA{Promotion thresholds met?}
-        AA -- Not yet --> AB[Continue observation window]
-        AB --> Z
-        AA -- Regression --> AD[Automatic rollback to prior version]
-        AA -- Yes --> AC[Promote candidate as current version]
-    end
-
-    AC --> AE[Write durable evolution record]
-    AD --> AF[Write rollback record and failure analysis]
-    AE --> AG[Update rolling operational evidence]
-    AF --> AG
-    AG --> AH{New improvement signal?}
-    AH -- Yes --> D
-    AH -- No --> A
-
-    X --> AI[Record escalation and keep current skill unchanged]
-    R1 --> AI
-    R2 --> AI
-    AI --> A
-```
-
-### 6.3 Happy path — standing autonomy only
-
-Human is not on this path. Any failed gate ends with the current skill unchanged and an audit record.
-
-```mermaid
-flowchart LR
-    S([Skill used]) --> O[1 Observe rolling evidence]
-    O --> H[2 Hypothesize named problem + metric]
-    H --> A[3 Authorize in-policy request]
-    A --> I[4 Implement isolated Jr candidate]
-    I --> P[5 Prove contract + safety checks]
-    P --> C[6 Canary one ordinary live use]
-    C --> D[7 Decide promote or rollback]
-    D --> L[8 Learn durable record + self-eval]
-    L --> E([Current version evolved or unchanged])
-    L -.-> O
-```
-
-### 6.4 Collaboration view — pools and lanes
-
-BPMN 2.0 reading used for the review graphics:
-
-- Pool `HUMAN OWNER` is an external participant. Sequence flow does not cross into it. Escalation and ordinary-result consumption are message flows.
-- Pool `HVE AGENT FLEET` is white-box with five lanes: Production Use, HVE-COS, Governance, hve-coder-jr, Live Operation.
-- Exclusive XOR gateways only. No parallel split.
-- Collapsed subprocesses on the Level 0 sheet: Diagnose & define, Create request, Bind request, Build candidate, Activate-and-measure.
-
-```mermaid
-flowchart TB
-    subgraph HUMAN["Pool: HUMAN OWNER — message flow only"]
-        HUM1[Decide escalated change]
-        HUM2[Approve standing autonomy policy]
-        HUM3[Own user-owned skills]
-        HUM4[Receive one ordinary result]
-    end
-
-    subgraph FLEET["Pool: HVE AGENT FLEET"]
-        subgraph PROD["Lane: Production use"]
-            A([Skill used]) --> B[Capture rolling operational evidence]
-            B --> C{Repeated signal?}
-            C -- No --> Z1([No change])
-        end
-
-        subgraph COS["Lane: HVE-COS"]
-            C -- Yes --> D[Diagnose and define enhancement]
-            D --> F{Within standing autonomy?}
-            F -- No --> X[Escalate / keep current skill]
-            F -- Yes --> G[Create governed enhancement request]
-            T --> U[Review candidate evidence]
-            U --> V{Fixes problem, no regression?}
-            V -- No --> R3[Bounded revision or abandon]
-        end
-
-        subgraph GOV["Lane: Governance"]
-            G --> K[Bind identity, contract, evidence, timeout, rollback]
-            K --> Q{Valid and bounded?}
-            Q -- No --> R1[Reject + audit]
-            Q -- Yes --> L[Route bounded job to Jr]
-        end
-
-        subgraph JR["Lane: hve-coder-jr"]
-            L --> N[Isolated candidate + smallest reversible change]
-            R3 --> N
-            N --> S{Contract and safety pass?}
-            S -- No --> R2[Reject / release lease]
-            S -- Yes --> T[Return candidate pack + rollback pointer]
-        end
-
-        subgraph LIVE["Lane: Live operation"]
-            V -- Yes --> W[Activate once / serve next ordinary request]
-            W --> AA{Promotion thresholds?}
-            AA -- Yes --> AC[Promote + evolution record + self-eval]
-            AA -- Regression --> AD[Automatic rollback + failure record]
-            AA -- Not yet --> W
-        end
-    end
-
-    X -.-> HUM1
-    HUM1 -.-> D
-    HUM4 -.-> W
-```
-
-### 6.5 Process responsibilities (from v1.0)
-
-| Stage | HVE-COS responsibility | hve-coder-jr responsibility | Required evidence |
-|---|---|---|---|
-| Observe | Monitor normal skill use and identify repeated friction | None unless delegated | Real outputs, corrections, latency, tool calls, failures |
-| Diagnose | Convert observations into a specific improvement hypothesis | None | Problem statement and supporting production evidence |
-| Define | State measurable success criteria and risk boundary | Confirm implementation feasibility | Target metric, scope, timeout, rollback requirement |
-| Authorize | Decide whether standing autonomy permits the change | Reject work outside the bounded contract | Ownership, policy, approval class, workspace |
-| Implement | Provide context and constraints | Build the smallest isolated candidate | Candidate version, diff, tests, instrumentation |
-| Validate | Review candidate evidence and risk | Run deterministic contract and safety checks | Pass/fail results, regression checks, evidence hash |
-| Operate | Select controlled activation window | Remain available for bounded correction or rollback | One ordinary user result |
-| Measure | Compare candidate telemetry with rolling production history | Report execution and resource metrics | Quality, latency, tool calls, corrections, failures |
-| Promote or rollback | Make lifecycle decision under standing policy | Supply rollback path and cleanup evidence | Promotion or rollback record |
-| Learn | Update the next improvement hypothesis | Preserve implementation evidence | Durable evolution record |
-
-Suggested RACI delta for v1.1 of the process, not applied here:
-
-- Define / Jr: keep feasibility only if section 4.6 is added to the flow.
-- Validate / COS: replace "review" with "apply Gate V checklist against the evidence pack."
-- Operate / both: add "release lease" on every terminal path.
-- Measure / system: add observation-window timer as a first-class event.
-
-### 6.6 x333 reference case (from v1.0)
-
-- **Observed signal:** repeated character-balancing work, 19 code calls, iteration-cap interruption, and approximately seven minutes for the resumed task. The #30 trigger additionally includes an unauthorized `skill_manage` attempt against a user-owned skill.
-- **Improvement hypothesis:** reduce character-balancing work and eliminate unauthorized curation attempts while preserving the exact 333-character contract, quote fidelity, attribution, passage-grounded insight, no-browsing behavior, no skill mutation, and unpublished handoff state.
-- **Candidate change:** hve-coder-jr implements a bounded formatter, validator, or control-plane change in an isolated version.
-- **Live measurement:** COS observes ordinary subsequent x333 uses without generating duplicate baseline outputs. It records exact-count completion, validation calls, latency, user corrections, skill-management calls, handoff state, publication state, and safety-boundary violations.
-- **Promotion:** retain the candidate if it improves the measured problem without reducing output quality or weakening ownership controls.
-- **Rollback:** revert automatically for invalid counts, attribution errors, unauthorized mutation attempts, increased latency, or ambiguous publication state.
-
-### 6.7 Non-negotiable invariants (from v1.0 — unchanged)
-
-1. The rolling production record is the baseline.
-2. COS owns the improvement decision; Jr owns bounded implementation.
-3. No model silently changes its own skill.
-4. Routine low-risk evolution does not require per-change human intervention.
-5. Risk-boundary changes always escalate.
-6. The user receives one ordinary result, not parallel baseline and candidate outputs.
-7. A failed or inconclusive candidate leaves the current skill unchanged.
-8. Every promotion and rollback produces durable audit evidence.
-9. A recommendation is not completion evidence.
-10. Self-evaluation is mandatory after every promoted change.
+Unchanged from v1.0. Full tables and Mermaid source are in the source process document linked above and in the previous revision of this review. The graphics in section 6.0 are the BPMN reading of that same flow.
 
 ---
 
