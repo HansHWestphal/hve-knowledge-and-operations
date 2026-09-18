@@ -8,10 +8,11 @@ Operating System around the Five Wealth framework to strengthen human sovereignt
 Current definitions, priorities, ownership, and policy live in the approved
 operating plan and weekly decision ledger. This file is not a decision log.
 
-The August 2026 authority record is
-[`agent-communications/2026-08-30-hve-identity-and-authority-index-v1.0.md`](agent-communications/2026-08-30-hve-identity-and-authority-index-v1.0.md).
-August 2026 artifacts take precedence over July and earlier material unless a
-later approved decision supersedes them.
+The current role reference is
+[`agent-communications/2026-09-18-hve-org-chart-v5.0.md`](agent-communications/2026-09-18-hve-org-chart-v5.0.md).
+The August 2026 authority record remains the historical authority baseline;
+the September chart supersedes it for current role assignments where they
+conflict.
 
 ## Source map
 
