@@ -45,9 +45,10 @@ https://spark-5054-1.tail3b0306.ts.net/
 ```
 
 The legacy CFO MCP service was stopped and disabled on September 18, 2026. Its
-future rebuild belongs to the new template-derived HVE-CFO fleet instance. The
-Tailscale node itself remains active for shared infrastructure and must not be
-stopped as part of the CFO decommission.
+public Funnel route was removed after the service shutdown. Its future rebuild
+belongs to the new template-derived HVE-CFO fleet instance. The Tailscale node
+itself remains active for shared infrastructure and must not be stopped as part
+of the CFO decommission.
 
 ## Invariants
 
