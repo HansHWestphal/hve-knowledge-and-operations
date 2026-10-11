@@ -91,12 +91,20 @@ Use the highest versioned record and recheck the host before operational work.
   `active` systemd state alone is not a channel-health check. The WhatsApp
   bridge process was present, but no external WhatsApp connection or message
   test was performed.
-- A Copilot command shell recently inherited
-  `HERMES_PROFILE=hanshermesagent`, although no such value was found in the
-  inspected shell startup files or user systemd manager environment. Its
-  source is unresolved. Do not infer a service's profile from the shell
-  environment or run a profile-sensitive Hermes command with an implicit
-  profile; check the service-specific profile context first.
+- A recent process trace found `HERMES_PROFILE=hanshermesagent` in the
+  existing GNOME Terminal server, its Bash child, and the running Copilot
+  process. The current user systemd manager export and inspected shell startup
+  files are clear; the original source that seeded the terminal server remains
+  unidentified. Existing processes retain inherited environment values.
+  After saving current work, start a new Copilot process with:
+
+  ```bash
+  env -u HERMES_PROFILE copilot
+  ```
+
+  This removes the retired profile from the new Copilot process and its
+  children without changing Hermes services. Do not infer a service's profile
+  from the shell environment; check its service-specific profile context.
 - The focused Hermes smoke and copied-data migration checks were the approved
   Step 4 gate. The full upstream test suite was not completed.
 
