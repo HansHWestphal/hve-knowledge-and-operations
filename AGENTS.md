@@ -51,6 +51,18 @@ new and revised communications must follow the convention.
 - A local file or chat message is not authoritative until the approved artifact is pushed.
 - If commit or push fails, report the failure; do not claim completion.
 
+## Session bootstrap
+
+- At the start of each session in this repository, read `README.md` and
+  `instructions.md`, then verify the current org chart and latest approved
+  weekly decision ledger before making HVE mission, role, or priority claims.
+- For Hermes or DGX Spark work, read the relevant current SOP/runbook and
+  session handoff, then verify live host, profile, service, and channel state.
+  Distinguish documented or historical state from what is currently running
+  and connected.
+- Do not use summarized conversation history as a substitute for current
+  repository sources or live system checks.
+
 ## Validation
 
 This is primarily Markdown and operational documentation. Do not claim builds,
