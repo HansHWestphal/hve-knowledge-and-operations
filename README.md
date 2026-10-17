@@ -125,6 +125,11 @@ Use the highest versioned record and recheck the host before operational work.
 ## Working principles
 
 - GitHub is the system of record for approved durable HVE artifacts.
+- The approved HVE-COS and HVE-Librarian skill-enhancement auto-queue policy
+  is [v1.0](agent-communications/2026-10-15-hve-skill-enhancement-autoqueue-policy-v1.0.md);
+  candidate promotion and publication remain human-gated.
+- The X333 first-run preflight result is recorded in the
+  [2026-10-16 status](agent-communications/2026-10-16-hve-skill-enhancement-autoqueue-first-run-status-v1.0.md).
 - Preserve provenance; do not rewrite historical communications.
 - Separate facts, decisions, proposals, assumptions, experiments, and open
   questions.
