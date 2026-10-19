@@ -53,6 +53,10 @@ new and revised communications must follow the convention.
 
 ## Session bootstrap
 
+- At the start of each session in this repository, read
+  [Luna's HVE-CFO setup and UAT retrospective](agent-communications/2026-10-19-hve-luna-cto-cfo-uat-lessons-v1.0.md).
+  Treat it as a corrective pre-read, not policy or runtime evidence; current
+  instructions, approved decisions, and live checks remain authoritative.
 - At the start of each session in this repository, read `README.md` and
   `instructions.md`, then verify the current org chart and latest approved
   weekly decision ledger before making HVE mission, role, or priority claims.
