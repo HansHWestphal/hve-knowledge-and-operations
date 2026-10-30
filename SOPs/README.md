@@ -42,9 +42,14 @@ historical publication context and decision trail.
 
 | Runbook | Owner | Status |
 |---|---|---|
+| [HVE Spark Local Services and Dashboard Runbook v1.0](./2026-10-30-hve-spark-local-services-dashboard-runbook-v1.0.md) | Luna, CTO | Live inventory snapshot; recheck before operational action |
+| [HVE Spark Memory Wiki Dashboard Runbook v1.0](./2026-10-30-hve-spark-memory-wiki-dashboard-runbook-v1.0.md) | Luna, CTO | Deployed; reboot behavior not tested |
 | [HVE Spark Hermes User-Session Supervision Runbook v1.0](./2026-09-12-hve-spark-hermes-user-session-supervision-runbook-v1.0.md) | Luna, CTO | Approved for operational use |
 
 Runbooks document concrete operational procedures for the Spark Hermes
 infrastructure. Use the same dated, versioned Markdown convention as SOPs,
 preserve prior versions, and publish approved changes to GitHub as the system
 of record.
+
+The static [Spark landing dashboard](../operational-artifacts/spark-landing-dashboard.html)
+provides navigation links only; it does not report live service health.

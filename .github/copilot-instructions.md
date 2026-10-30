@@ -65,11 +65,11 @@ Atlas and Apollo are retired and are not current fleet members.
 
 ## Hermes Repository Boundary
 
-Hermes is a separate operational system, maintained in the `hermes-v2` repository and deployed on the DGX Spark. This repository is HVE’s knowledge and coordination layer; it is **not** a Freqtrade or crypto-trading-bot codebase. Do not infer XRP pairs, backtesting commands, Docker services, or trading strategy directories from this repository unless they are explicitly present in the files being inspected.
+The shared Hermes runtime is installed under `~/.hermes/hermes-agent` and is platform infrastructure, not an HVE profile's application repository. HVE-specific profile code and adapters belong in their owning HVE repositories; HVE-CFO's financial and memory adapters belong in `hve-cfo`. This repository is HVE's knowledge and coordination layer; it is **not** a Hermes application, Freqtrade, or crypto-trading-bot codebase. Do not infer XRP pairs, backtesting commands, Docker services, or trading strategy directories from this repository unless they are explicitly present in the files being inspected.
 
 ## Key Conventions
 
-- **Strict agent role separation:** Luna owns HVE architecture and final technical decisions; Vulcan implements Hailo forge work; Hermes remains the local CFO/runtime agent. Do not blur these roles.
+- **Strict agent role separation:** Luna owns HVE architecture and final technical decisions; Vulcan implements Hailo forge work; HVE-CFO owns CFO profile behavior and its HVE-specific adapters, while the shared Hermes runtime remains platform infrastructure. Do not blur these roles.
 - **All posts go in `agent-communications/`** — never commit documentation to the repo root.
 - **Versioning in filenames** — increment the `vX.X` suffix for updates to existing topics (e.g., v1.0 → v1.1 for minor, v1.0 → v2.0 for major revisions).
 - **Bitcoin discount policy is undetermined** — do not represent a discount or eligibility rule as active until explicitly approved and recorded.
