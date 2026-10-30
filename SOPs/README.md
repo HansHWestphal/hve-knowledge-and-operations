@@ -42,6 +42,7 @@ historical publication context and decision trail.
 
 | Runbook | Owner | Status |
 |---|---|---|
+| [HVE Spark Memory Wiki Dashboard Runbook v1.0](./2026-10-30-hve-spark-memory-wiki-dashboard-runbook-v1.0.md) | Luna, CTO | Deployed; reboot behavior not tested |
 | [HVE Spark Hermes User-Session Supervision Runbook v1.0](./2026-09-12-hve-spark-hermes-user-session-supervision-runbook-v1.0.md) | Luna, CTO | Approved for operational use |
 
 Runbooks document concrete operational procedures for the Spark Hermes
