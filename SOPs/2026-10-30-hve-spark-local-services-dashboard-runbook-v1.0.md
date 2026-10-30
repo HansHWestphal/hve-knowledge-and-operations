@@ -46,6 +46,7 @@ checked.
 | `dgx-dashboard.service` | NVIDIA DGX Dashboard |
 | `dgx-dashboard-admin.service` | NVIDIA DGX Dashboard administration component |
 | `nginx.service` | Web server and reverse proxy |
+| `tailscaled.service` | Tailscale network and Serve/Funnel |
 | `open-webui.service` | Open WebUI |
 | `ollama.service` | Ollama inference API |
 | `hve-coder-runtime.service` | Shared vLLM inference runtime |
@@ -108,18 +109,39 @@ These are navigation links, not Spark-hosted services:
 
 - HVE website: `https://humanvalueexchange.com/`
 - HVE blog: `https://humanvalueexchange.blog/`
+- Grok: `https://grok.com/`
+- X: `https://x.com/`
 - Microsoft Office: `https://office.com/`
+- Brave API Dashboard: `https://api-dashboard.search.brave.com/app/dashboard`
+- GitHub: `https://github.com/`
+- HVE x402 Watch: `https://hanshwestphal.github.io/x402-watch/`
+- HVE Maps: `https://hanshwestphal.github.io/HVE-maps/`
+- Amboss Magma: `https://magma.amboss.tech/buy`
+- Amboss subscriptions: `https://account.amboss.tech/subscriptions`
+- Starlink: `https://starlink.com/`
+- Tailscale Admin Console: `https://login.tailscale.com/admin/machines`
 - Router administration page: `http://192.168.1.1/start.html` (LAN gateway;
   not checked during the Spark inventory)
 
+### Tailscale-hosted services
+
+Tailscale was active during the inventory. BTCPay Server is available through
+Nginx bound to the Spark's Tailscale address at
+`https://spark-5054-1.tail3b0306.ts.net:8443/`; this requires an authorized
+Tailscale connection. Its backend remains loopback-bound at
+`http://127.0.0.1:23000/`.
+
+Tailscale also reports Funnel enabled at
+`https://spark-5054-1.tail3b0306.ts.net/`, proxying to
+`http://127.0.0.1:3001`. Port `3001` had no listener during the inventory, so
+this is not listed as an available dashboard destination. The public endpoint
+was not tested.
+
 ## Exposure and verification caveats
 
-- Tailscale reported Funnel enabled for
-  `https://spark-5054-1.tail3b0306.ts.net`, proxying `/` to
-  `http://127.0.0.1:3001`. No listener was present on port `3001` during the
-  inventory. The target therefore appeared unavailable locally; the public
-  route was not tested. Review this mapping before relying on or publishing
-  the hostname.
+- The Funnel mapping and missing local port `3001` listener are detailed in
+  the Tailscale section above. Do not rely on the public URL until its target
+  and access boundary have been reverified.
 - The Spark's LAN interface had listeners on ports `22`, `80`, `8080`, and
   `8333`. This is socket-binding evidence only; firewall rules and reachability
   from another device were not tested.

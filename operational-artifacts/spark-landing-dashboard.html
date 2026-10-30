@@ -100,6 +100,12 @@
       font-size: 1.25rem;
     }
 
+    .section-note {
+      margin: .75rem 0 0;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr));
@@ -202,6 +208,16 @@
           <span>Ideas, stories, and updates</span>
           <em>Open blog ↗</em>
         </a>
+        <a class="card" href="https://grok.com/" target="_blank" rel="noopener noreferrer">
+          <strong>Grok</strong>
+          <span>xAI assistant</span>
+          <em>Open Grok ↗</em>
+        </a>
+        <a class="card" href="https://x.com/" target="_blank" rel="noopener noreferrer">
+          <strong>X</strong>
+          <span>Social network</span>
+          <em>Open X ↗</em>
+        </a>
       </div>
     </section>
 
@@ -228,26 +244,85 @@
           <span>Lightning node interface</span>
           <em>Open RTL ↗</em>
         </a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tailnet-services">
+      <h2 id="tailnet-services">Tailscale and Remote Services</h2>
+      <div class="grid">
+        <a class="card" href="https://login.tailscale.com/admin/machines" target="_blank" rel="noopener noreferrer">
+          <strong>Tailscale Admin</strong>
+          <span>Manage tailnet devices and access</span>
+          <em>Open Tailscale ↗</em>
+        </a>
         <a class="card" href="https://spark-5054-1.tail3b0306.ts.net:8443/" target="_blank" rel="noopener noreferrer">
           <strong>BTCPay Server</strong>
           <span>Requires access to the HVE Tailscale network</span>
           <em>Open BTCPay ↗</em>
         </a>
       </div>
+      <p class="section-note">The public Funnel route currently targets a local port with no listener and is not included as a working shortcut.</p>
     </section>
 
-    <section class="section" aria-labelledby="network-tools">
-      <h2 id="network-tools">Network and Everyday Tools</h2>
+    <section class="section" aria-labelledby="hosted-tools">
+      <h2 id="hosted-tools">Hosted Tools</h2>
       <div class="grid">
-        <a class="card" href="http://192.168.1.1/start.html" target="_blank" rel="noopener noreferrer">
-          <strong>Router Admin</strong>
-          <span>Local network gateway; not hosted on the Spark</span>
-          <em>Open router page ↗</em>
+        <a class="card" href="https://api-dashboard.search.brave.com/app/dashboard" target="_blank" rel="noopener noreferrer">
+          <strong>Brave API Dashboard</strong>
+          <span>Brave Search API account dashboard</span>
+          <em>Open Brave dashboard ↗</em>
+        </a>
+        <a class="card" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+          <strong>GitHub</strong>
+          <span>Repositories and project work</span>
+          <em>Open GitHub ↗</em>
+        </a>
+        <a class="card" href="https://hanshwestphal.github.io/x402-watch/" target="_blank" rel="noopener noreferrer">
+          <strong>x402 Watch</strong>
+          <span>HVE hosted project</span>
+          <em>Open x402 Watch ↗</em>
+        </a>
+        <a class="card" href="https://hanshwestphal.github.io/HVE-maps/" target="_blank" rel="noopener noreferrer">
+          <strong>HVE Maps</strong>
+          <span>HVE hosted project</span>
+          <em>Open HVE Maps ↗</em>
         </a>
         <a class="card" href="https://office.com/" target="_blank" rel="noopener noreferrer">
           <strong>Microsoft Office</strong>
           <span>Microsoft 365 web apps</span>
           <em>Open Office ↗</em>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="connectivity-tools">
+      <h2 id="connectivity-tools">Bitcoin and Connectivity</h2>
+      <div class="grid">
+        <a class="card" href="https://magma.amboss.tech/buy" target="_blank" rel="noopener noreferrer">
+          <strong>Amboss Magma</strong>
+          <span>Lightning liquidity marketplace</span>
+          <em>Open Magma ↗</em>
+        </a>
+        <a class="card" href="https://account.amboss.tech/subscriptions" target="_blank" rel="noopener noreferrer">
+          <strong>Amboss Subscriptions</strong>
+          <span>Amboss account subscriptions</span>
+          <em>Open subscriptions ↗</em>
+        </a>
+        <a class="card" href="https://starlink.com/" target="_blank" rel="noopener noreferrer">
+          <strong>Starlink</strong>
+          <span>Connectivity account</span>
+          <em>Open Starlink ↗</em>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="network-tools">
+      <h2 id="network-tools">Local Network</h2>
+      <div class="grid">
+        <a class="card" href="http://192.168.1.1/start.html" target="_blank" rel="noopener noreferrer">
+          <strong>Router Admin</strong>
+          <span>Local network gateway; not hosted on the Spark</span>
+          <em>Open router page ↗</em>
         </a>
       </div>
     </section>
