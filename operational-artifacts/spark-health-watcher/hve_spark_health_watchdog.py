@@ -39,6 +39,10 @@ OLLAMA_BASE = os.environ.get("OLLAMA_HEALTH_URL", "http://127.0.0.1:11434")
 ALERT_ROUTE = os.environ.get("HVE_WATCHDOG_ALERT_ROUTE", "whatsapp:98938950533173@lid")
 STALE_METADATA_SECONDS = 2 * 60 * 60
 RECENT_ERROR_WINDOW = "-30 min"
+VLLM_BASE = "http://127.0.0.1:11435"
+VLLM_SERVICE = "hve-coder-runtime.service"
+VLLM_EXPECTED_MODEL = "nvidia-nemotron-nano-9b-v2-nvfp4"
+VLLM_MIN_CONTEXT = 65536
 NONCRITICAL_CRON_FAILURE_THRESHOLD = 3
 CRITICAL_CRON_JOBS = {
     name.strip()
@@ -506,6 +510,24 @@ def check_scheduler(checks: dict[str, Any], findings: list[dict[str, str]]) -> N
     add_check(checks, findings, "hermes.cron_registry", "pass", f"active_jobs={len(active)}")
 
 
+def request_json(base_url: str, path: str, timeout: int = 8) -> tuple[Any, str | None]:
+    request = urllib.request.Request(f"{base_url.rstrip('/')}{path}", headers={"Accept": "application/json"})
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            return json.loads(response.read().decode("utf-8")), None
+    except (OSError, urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+        return None, str(exc)
+
+
+def url_status(base_url: str, path: str, timeout: int = 8) -> tuple[int | None, str | None]:
+    request = urllib.request.Request(f"{base_url.rstrip('/')}{path}", headers={"Accept": "application/json"})
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            return response.getcode(), None
+    except (OSError, urllib.error.URLError, TimeoutError) as exc:
+        return None, str(exc)
+
+
 def check_journal(checks: dict[str, Any], findings: list[dict[str, Any]]) -> None:
     units = [spec["service"] for spec in PROFILE_REGISTRY.values() if spec.get("service")] + ["hermes-mcp.service", "hermes-proton-worker.service"]
     errors: list[tuple[str, str]] = []
@@ -526,15 +548,92 @@ def check_journal(checks: dict[str, Any], findings: list[dict[str, Any]]) -> Non
             "warn",
             detail,
             event_type="expected_policy_block" if policy_event else "journal_error",
-            impact="none" if policy_event else "actionable",
+            impact="none",
             fingerprint_key=f"{unit}:robots-blocked" if policy_event else f"{unit}:{normalized_detail}",
         )
     add_check(
         checks,
         findings,
         "host.recent_relevant_errors",
-        "pass",
+        "warn" if errors else "pass",
         "none detected in selected user services" if not errors else f"events={len(errors)}; see per-service findings",
+        event_type="journal_observation" if errors else "health_check",
+        impact="none" if errors else None,
+    )
+
+
+def check_vllm(checks: dict[str, Any], findings: list[dict[str, Any]]) -> None:
+    service_active, service_reason, service_pid = systemd_active(VLLM_SERVICE)
+    if not service_active:
+        add_check(
+            checks,
+            findings,
+            "vllm.supervision",
+            "warn",
+            f"{VLLM_SERVICE} user-unit={service_reason}; endpoint ownership is not systemd-verified",
+            event_type="supervision_gap",
+            impact="none",
+        )
+    else:
+        add_check(
+            checks,
+            findings,
+            "vllm.supervision",
+            "pass",
+            f"{VLLM_SERVICE} user-unit=active pid={service_pid or 'unknown'}",
+        )
+
+    health_status, error = url_status(VLLM_BASE, "/health")
+    if error or health_status != 200:
+        add_check(
+            checks,
+            findings,
+            "vllm.runtime",
+            "fail",
+            f"endpoint={VLLM_BASE} health_status={health_status or 'unavailable'} error={error or 'expected HTTP 200'}",
+        )
+        return
+
+    models, error = request_json(VLLM_BASE, "/v1/models")
+    model_entries = models.get("data") if isinstance(models, dict) else None
+    if error or not isinstance(model_entries, list):
+        add_check(
+            checks,
+            findings,
+            "vllm.runtime",
+            "fail",
+            f"endpoint=healthy health=200 models_error={error or 'invalid /v1/models response'}",
+        )
+        return
+    matches = [
+        item for item in model_entries
+        if isinstance(item, dict) and item.get("id") == VLLM_EXPECTED_MODEL
+    ]
+    if len(matches) != 1:
+        add_check(
+            checks,
+            findings,
+            "vllm.runtime",
+            "fail",
+            f"expected model {VLLM_EXPECTED_MODEL} is not uniquely advertised",
+        )
+        return
+    context = matches[0].get("max_model_len")
+    if not isinstance(context, int) or context < VLLM_MIN_CONTEXT:
+        add_check(
+            checks,
+            findings,
+            "vllm.runtime",
+            "fail",
+            f"model={VLLM_EXPECTED_MODEL} context={context} expected_at_least={VLLM_MIN_CONTEXT}",
+        )
+        return
+    add_check(
+        checks,
+        findings,
+        "vllm.runtime",
+        "pass",
+        f"endpoint=healthy health=200 model={VLLM_EXPECTED_MODEL} context={context}",
     )
 
 
@@ -543,6 +642,7 @@ def collect(scenario: str) -> dict[str, Any]:
     findings: list[dict[str, Any]] = []
     check_host(checks, findings)
     check_ollama(checks, findings)
+    check_vllm(checks, findings)
     for name, spec in PROFILE_REGISTRY.items():
         check_profile(name, spec, checks, findings)
     check_scheduler(checks, findings)
