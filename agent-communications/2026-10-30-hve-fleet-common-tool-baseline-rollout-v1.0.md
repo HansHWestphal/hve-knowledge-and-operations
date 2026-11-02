@@ -2,7 +2,7 @@
 
 - **Date:** 2026-10-30
 - **Version:** v1.0
-- **Status:** Approved implementation plan; pending PR review and merge
+- **Status:** Approved implementation plan; PR #52 merged 2026-10-31; rollout and production activation not verified. Superseded in scope by the [Phase 0 spec v1.1](2026-11-01-hve-fleet-common-tool-baseline-phase0-spec-v1.1.md) (status line corrected 2026-11-02)
 - **Decision owner:** Hans Westphal, CEO
 - **Implementation owner:** Luna, CTO / Head Architect
 - **Pilot cohort:** `hve-chief-of-staff`, `hve-librarian`, `hve-cfo`
