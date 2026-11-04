@@ -2,7 +2,7 @@
 
 **Artifact:** Stand‑alone companion module to the Stage‑1 (the 11‑Up) curriculum — the book's cosmology, presented as the tradition's internal cosmology. Seat: **Kether, month 11 (the capstone).**
 **Owner:** Hans Westphal
-**Status:** **DRAFT v1.0 — not approved, not committed** (v1.0 curriculum unchanged; v1.1 schedule draft updated to reference this module)
+**Status:** **v1.0 APPROVED — locked and published (Hans, 2026‑11‑04)** (v1.0 curriculum unchanged and stays in history)
 **Placement decision (Hans, 2026‑11‑04):** "For kether … yes thought ether to electron sun."
 
 ## Provenance & standing (kept distinct)
@@ -61,6 +61,9 @@ Reach, in order: **the voice** (nearest) → **the light** (between the orbs) �
 
 - **The double line (the contemplation, daily):** outward — I → voice → thought → body → cell → electron sun; back in — sun → solar system → atom → I. Held quietly, five minutes.
 - **The month's offering:** to feed "the spiritual appetite" — *"so long as there is death on the one hand and birth on the other, the spiritual appetite demands to be fed"* (L11) — contemplation, prayer, or word, on the liturgical cycle of the moon.
+
+> From the thought‑ether to the electron‑sun — at the center of its own order, the I; and in the voice, its transmission.
+> — on the system of Edmund Shaftesbury, *Instantaneous Personal Magnetism* (1935). The line is the course's phrasing; the cosmology — thought‑ether, electron‑sun, the I, the tense voice — is his, and the credit is his.
 - **The closing line:** by the full moon the drills of months 1–10 have ceased to be exercises. They are the life's method (L37).
 
 ## The honest standing (kept on the table, per Hans)
@@ -78,8 +81,8 @@ Reach, in order: **the voice** (nearest) → **the light** (between the orbs) �
 | The spiritual appetite | L11 |
 | Tensing / voice as vibration | L37–40 |
 | The seats and the Time Acts frame | v1.0 artifact `2026-10-24-hve-qabalah-stage-1-up-wealth-seats-v1.0.md` (commit `776e2ef`) |
-| Monthly placement | v1.1 draft `2026-11-03-hve-qabalah-stage-1-up-wealth-seats-v1.1.md` |
+| Monthly placement | v1.1 (approved) `2026-11-03-hve-qabalah-stage-1-up-wealth-seats-v1.1.md` |
 
-**Open for Hans:**
-1. A single **line to be read aloud** for the month's offering — candidate: *"From the thought ether to the electron sun — at the center of its own order, the I; and in the voice, its transmission."* Keep, or rewrite in your voice?
-2. On your lock‑and‑publish: this file and the v1.1 Kether note go in as a pair (v1.0 stays in history).
+**Approval (Hans, 2026‑11‑04):**
+1. **Kept, credited to the author.**
+2. **Locked and published** — this file and the v1.1 Kether note commit as a pair (v1.0 stays in history).

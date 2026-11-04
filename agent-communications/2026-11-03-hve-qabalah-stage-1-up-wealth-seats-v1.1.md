@@ -2,7 +2,7 @@
 
 **Artifact:** v1.1 addendum to the Stage‑1 (the 11‑Up) curriculum — adds a **practice schedule**: one headline practice per seat‑month, drawn from a sourced classic.
 **Owner:** Hans Westphal
-**Status:** **v1.1 DRAFT — not approved, not committed** (v1.0 remains the approved, published text at `776e2ef`)
+**Status:** **v1.1 APPROVED — locked and published (Hans, 2026‑11‑04)** (v1.0 remains the approved, locked text at `776e2ef`)
 **Prepared:** 2026‑11‑03 by HVE‑Librarian, per Hans's instruction: "top practices per month to include"
 
 **Provenance layers (kept distinct):**
@@ -88,11 +88,12 @@
 | L40 Tense voice | 10 | the voiced‑initiative drill |
 
 **Handling of the book's cosmology & claims (per Hans, 2026-11-04 — nothing pre-ruled-out):**
-- The book's ether / electron / one-force cosmology (L7 "Outlines of Magnetism"; L37-39): in this curriculum it stands as the **tradition's internal cosmology** — the same register as v1.0's own "creative vibration / the living word" account — cited as the book's teaching, not asserted as externally verified physics. **Placed (Hans, 2026-11-04):** stand-alone companion module, seated in the Kether month — `2026-11-04-hve-kether-thought-ether-electron-sun-v1.0.md` (draft).
+- The book's ether / electron / one-force cosmology (L7 "Outlines of Magnetism"; L37-39): in this curriculum it stands as the **tradition's internal cosmology** — the same register as v1.0's own "creative vibration / the living word" account — cited as the book's teaching, not asserted as externally verified physics. **Placed (Hans, 2026-11-04):** stand-alone companion module, seated in the Kether month — `2026-11-04-hve-kether-thought-ether-electron-sun-v1.0.md` (approved).
 - Its 1935 medicine & food doctrine: candidates only, for the Physical partner's verification; not medical advice.
 - Its marketing claims (the case studies, "four million students"): not used as evidence.
 
-**Open for Hans (draft questions):**
-1. Month 6 (Geburah) — is naming "the sexual appetite" in‑house language for this program, or does the seat keep the book's framing softer?
-2. Month 1 food items — verify with Alan now or hold for the Physical‑Wealth curriculum?
-3. Approval: on your "lock and publish" this file is committed as the v1.1 revision (separate commit; v1.0 stays in history).
+**Approval (Hans, 2026‑11‑04):** locked and published — committed as the v1.1 revision (v1.0 stays in history). The Kether offering line is kept, credited to the author (see companion doc).
+
+**Open items (pending, not blockers to the approval):**
+1. Month 6 (Geburah) — is naming "the sexual appetite" in-house language for this program, or does the seat keep the book's framing softer?
+2. Month 1 food items — verify with Alan now or hold for the Physical-Wealth curriculum?
